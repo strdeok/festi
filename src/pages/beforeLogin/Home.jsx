@@ -1,13 +1,13 @@
-import { Link } from "react-router-dom";
-import Button from "../../components/Button";
+import Title from "../../components/Title";
+import Login from "../../components/Login";
+import { Outlet } from "react-router-dom";
 
 export default function Home() {
   return (
-    <div>
-      <h1>Home</h1>
-      <Link to={"/login"}>
-        <Button title={"로그인하기"} />
-      </Link >
+    <div className="flex flex-col items-center justify-center w-full h-full z-30">
+      <Title />
+      <Login />
+      <Outlet />
     </div>
   );
 }
