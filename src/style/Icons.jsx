@@ -1,0 +1,422 @@
+export function HomeIcon({ state }) {
+  return (
+    <svg
+      width="21"
+      height="17"
+      viewBox="0 0 21 17"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M8.125 17V11H12.125V17H17.125V9H20.125L10.125 0L0.125 9H3.125V17H8.125Z"
+        fill={state ? "#FCAF16" : "#C6C6C6"}
+      />
+    </svg>
+  );
+}
+
+export function Polaroid({ state }) {
+  return (
+    <svg
+      width="17"
+      height="18"
+      viewBox="0 0 17 18"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M2.375 0H14.375C14.9054 0 15.4141 0.210714 15.7892 0.585786C16.1643 0.960859 16.375 1.46957 16.375 2V16C16.375 16.5304 16.1643 17.0391 15.7892 17.4142C15.4141 17.7893 14.9054 18 14.375 18H2.375C1.84457 18 1.33586 17.7893 0.960786 17.4142C0.585714 17.0391 0.375 16.5304 0.375 16V2C0.375 1.46957 0.585714 0.960859 0.960786 0.585786C1.33586 0.210714 1.84457 0 2.375 0ZM2.375 2V14H14.375V2H2.375Z"
+        fill={state ? "#FCAF16" : "#C6C6C6"}
+      />
+    </svg>
+  );
+}
+
+export function Glass({ state }) {
+  return (
+    <svg
+      width="17"
+      height="18"
+      viewBox="0 0 17 18"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M16.163 1.639C16.557 1.094 16.625 0 16.625 0H0.625C0.625 0 0.693 1.094 1.087 1.639L7.625 10V16H5.625C3.625 16 3.625 18 3.625 18H13.625C13.625 18 13.625 16 11.625 16H9.625V10L16.163 1.639ZM8.025 5C8.025 4.57565 8.19357 4.16869 8.49363 3.86863C8.79369 3.56857 9.20065 3.4 9.625 3.4C10.0493 3.4 10.4563 3.56857 10.7564 3.86863C11.0564 4.16869 11.225 4.57565 11.225 5C11.225 5.42435 11.0564 5.83131 10.7564 6.13137C10.4563 6.43143 10.0493 6.6 9.625 6.6C9.20065 6.6 8.79369 6.43143 8.49363 6.13137C8.19357 5.83131 8.025 5.42435 8.025 5Z"
+        fill={state ? "#FCAF16" : "#C6C6C6"}
+      />
+    </svg>
+  );
+}
+
+export function Human({ state }) {
+  return (
+    <svg
+      width="19"
+      height="18"
+      viewBox="0 0 19 18"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M5.875 4C5.875 2.93913 6.29643 1.92172 7.04657 1.17157C7.79672 0.421427 8.81413 0 9.875 0C10.9359 0 11.9533 0.421427 12.7034 1.17157C13.4536 1.92172 13.875 2.93913 13.875 4C13.875 5.06087 13.4536 6.07828 12.7034 6.82843C11.9533 7.57857 10.9359 8 9.875 8C8.81413 8 7.79672 7.57857 7.04657 6.82843C6.29643 6.07828 5.875 5.06087 5.875 4ZM5.875 10C4.54892 10 3.27715 10.5268 2.33947 11.4645C1.40178 12.4021 0.875 13.6739 0.875 15C0.875 15.7956 1.19107 16.5587 1.75368 17.1213C2.31629 17.6839 3.07935 18 3.875 18H15.875C16.6706 18 17.4337 17.6839 17.9963 17.1213C18.5589 16.5587 18.875 15.7956 18.875 15C18.875 13.6739 18.3482 12.4021 17.4105 11.4645C16.4729 10.5268 15.2011 10 13.875 10H5.875Z"
+        fill={state ? "#FCAF16" : "#C6C6C6"}
+      />
+    </svg>
+  );
+}
+
+export function SmallStar() {
+  return (
+    <svg
+      width="36"
+      height="40"
+      viewBox="0 0 36 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g filter="url(#filter0_f_271_1736)">
+        <path
+          d="M18 4L21.7813 15.6785L32 20L21.7813 24.3215L18 36L14.2187 24.3215L4 20L14.2187 15.6785L18 4Z"
+          fill="url(#paint0_diamond_271_1736)"
+          fill-opacity="0.8"
+        />
+      </g>
+      <defs>
+        <filter
+          id="filter0_f_271_1736"
+          x="0"
+          y="0"
+          width="36"
+          height="40"
+          filterUnits="userSpaceOnUse"
+          color-interpolation-filters="sRGB"
+        >
+          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feBlend
+            mode="normal"
+            in="SourceGraphic"
+            in2="BackgroundImageFix"
+            result="shape"
+          />
+          <feGaussianBlur
+            stdDeviation="2"
+            result="effect1_foregroundBlur_271_1736"
+          />
+        </filter>
+        <radialGradient
+          id="paint0_diamond_271_1736"
+          cx="0"
+          cy="0"
+          r="1"
+          gradientUnits="userSpaceOnUse"
+          gradientTransform="translate(18 20) rotate(90) scale(16 14)"
+        >
+          <stop stop-color="#FCAF16" />
+          <stop offset="1" stop-color="#FDFDFD" />
+        </radialGradient>
+      </defs>
+    </svg>
+  );
+}
+
+export function BigStar() {
+  return (
+    <svg
+      width="123"
+      height="150"
+      viewBox="0 0 123 150"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g filter="url(#filter0_f_240_838)">
+        <path
+          d="M64 4L80.2054 55.8236L124 75L80.2054 94.1764L64 146L47.7946 94.1764L4 75L47.7946 55.8236L64 4Z"
+          fill="url(#paint0_diamond_240_838)"
+          fill-opacity="0.3"
+        />
+      </g>
+      <defs>
+        <filter
+          id="filter0_f_240_838"
+          x="0"
+          y="0"
+          width="128"
+          height="150"
+          filterUnits="userSpaceOnUse"
+          color-interpolation-filters="sRGB"
+        >
+          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feBlend
+            mode="normal"
+            in="SourceGraphic"
+            in2="BackgroundImageFix"
+            result="shape"
+          />
+          <feGaussianBlur
+            stdDeviation="2"
+            result="effect1_foregroundBlur_240_838"
+          />
+        </filter>
+        <radialGradient
+          id="paint0_diamond_240_838"
+          cx="0"
+          cy="0"
+          r="1"
+          gradientUnits="userSpaceOnUse"
+          gradientTransform="translate(64 75) rotate(90) scale(71 60)"
+        >
+          <stop stop-color="#FCAF16" />
+          <stop offset="1" stop-color="#FDFDFD" />
+        </radialGradient>
+      </defs>
+    </svg>
+  );
+}
+
+export function AddPolaroid() {
+  return (
+    <svg
+      width="23"
+      height="26"
+      viewBox="0 0 23 26"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="relative left-[2px] bottom-[2px]"
+    >
+      <path
+        d="M2.25 6H15.75C16.3467 6 16.919 6.23413 17.341 6.65087C17.7629 7.06762 18 7.63285 18 8.22222V23.7778C18 24.3671 17.7629 24.9324 17.341 25.3491C16.919 25.7659 16.3467 26 15.75 26H2.25C1.65326 26 1.08097 25.7659 0.65901 25.3491C0.237053 24.9324 0 24.3671 0 23.7778V8.22222C0 7.63285 0.237053 7.06762 0.65901 6.65087C1.08097 6.23413 1.65326 6 2.25 6ZM2.25 8.22222V21.5556H15.75V8.22222H2.25Z"
+        fill="#474747"
+      />
+      <rect x="11" width="12" height="12" rx="6" fill="white" />
+      <path
+        d="M21 6.57143H17.5714V10H16.4286V6.57143H13V5.42857H16.4286V2H17.5714V5.42857H21V6.57143Z"
+        fill="#474747"
+      />
+    </svg>
+  );
+}
+
+export function AddDrinkParty() {
+  return (
+    <svg
+      width="23"
+      height="26"
+      viewBox="0 0 23 26"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="relative left-[2px] bottom-[2px]"
+    >
+      <path
+        d="M17.4802 7.82111C17.9235 7.21556 18 6 18 6H0C0 6 0.0764999 7.21556 0.51975 7.82111L7.875 17.1111V23.7778H5.625C3.375 23.7778 3.375 26 3.375 26H14.625C14.625 26 14.625 23.7778 12.375 23.7778H10.125V17.1111L17.4802 7.82111ZM8.325 11.5556C8.325 11.0841 8.51464 10.6319 8.85221 10.2985C9.18977 9.96508 9.64761 9.77778 10.125 9.77778C10.6024 9.77778 11.0602 9.96508 11.3978 10.2985C11.7354 10.6319 11.925 11.0841 11.925 11.5556C11.925 12.0271 11.7354 12.4792 11.3978 12.8126C11.0602 13.146 10.6024 13.3333 10.125 13.3333C9.64761 13.3333 9.18977 13.146 8.85221 12.8126C8.51464 12.4792 8.325 12.0271 8.325 11.5556Z"
+        fill="#474747"
+      />
+      <rect x="11" width="12" height="12" rx="6" fill="white" />
+      <path
+        d="M21 6.57143H17.5714V10H16.4286V6.57143H13V5.42857H16.4286V2H17.5714V5.42857H21V6.57143Z"
+        fill="#474747"
+      />
+    </svg>
+  );
+}
+
+export function BackArrow() {
+  return (
+    <svg
+      width="12"
+      height="24"
+      viewBox="0 0 12 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M3.343 12.0001L10.414 19.0711L9 20.4851L1.222 12.7071C1.03453 12.5196 0.929214 12.2653 0.929214 12.0001C0.929214 11.735 1.03453 11.4807 1.222 11.2931L9 3.51514L10.414 4.92914L3.343 12.0001Z"
+        fill="black"
+      />
+    </svg>
+  );
+}
+
+export function FilledCheckBox({ state }) {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        width="24"
+        height="24"
+        rx="4"
+        fill={state ? "#FCAF16" : "#C9C9C9"}
+      />
+      <path
+        d="M8.99999 16.1698L5.52999 12.6998C5.34302 12.5129 5.08942 12.4078 4.82499 12.4078C4.56057 12.4078 4.30697 12.5129 4.11999 12.6998C3.93302 12.8868 3.82797 13.1404 3.82797 13.4048C3.82797 13.5358 3.85376 13.6654 3.90387 13.7864C3.95397 13.9073 4.02741 14.0173 4.11999 14.1098L8.29999 18.2898C8.68999 18.6798 9.31999 18.6798 9.70999 18.2898L20.29 7.70983C20.477 7.52286 20.582 7.26926 20.582 7.00483C20.582 6.74041 20.477 6.48681 20.29 6.29983C20.103 6.11286 19.8494 6.00781 19.585 6.00781C19.3206 6.00781 19.067 6.11286 18.88 6.29983L8.99999 16.1698Z"
+        fill="white"
+      />
+    </svg>
+  );
+}
+
+export function Bell({ state }) {
+  return (
+    <svg
+      width="19"
+      height="21"
+      viewBox="0 0 19 21"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M18.625 17V18H0.625V17L2.625 15V9C2.625 5.9 4.655 3.17 7.625 2.29V2C7.625 1.46957 7.83571 0.960859 8.21079 0.585786C8.58586 0.210714 9.09457 0 9.625 0C10.1554 0 10.6641 0.210714 11.0392 0.585786C11.4143 0.960859 11.625 1.46957 11.625 2V2.29C14.595 3.17 16.625 5.9 16.625 9V15L18.625 17ZM11.625 19C11.625 19.5304 11.4143 20.0391 11.0392 20.4142C10.6641 20.7893 10.1554 21 9.625 21C9.09457 21 8.58586 20.7893 8.21079 20.4142C7.83571 20.0391 7.625 19.5304 7.625 19"
+        fill={state ? "#FCAF16" : "#C6C6C6"}
+      />
+    </svg>
+  );
+}
+
+export function SnowFlake({ size, color }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M1 16H12.25"
+        stroke={color}
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+      <path
+        d="M19.75 16H31"
+        stroke={color}
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+      <path
+        d="M16 1L16 12.25"
+        stroke={color}
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+      <path
+        d="M16 19.75L16 31"
+        stroke={color}
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+      <path
+        d="M23.9688 8.03125L18.6953 13.3047"
+        stroke={color}
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+      <path
+        d="M13.3047 18.8125L8.03126 24.0859"
+        stroke={color}
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+      <path
+        d="M23.9688 23.9688L18.6953 18.6953"
+        stroke={color}
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+      <path
+        d="M13.3047 13.1875L8.03126 7.91407"
+        stroke={color}
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+    </svg>
+  );
+}
+
+export function UpIcon() {
+  return (
+    <svg
+      width="40"
+      height="20"
+      viewBox="0 0 40 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g clip-path="url(#clip0_472_9428)">
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M20.0002 5.57156L8.21518 17.3566L5.85851 14.9999L18.8218 2.03656C19.1344 1.72411 19.5582 1.54858 20.0002 1.54858C20.4421 1.54858 20.866 1.72411 21.1785 2.03656L34.1418 14.9999L31.7852 17.3566L20.0002 5.57156Z"
+          fill="#858585"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_472_9428">
+          <rect
+            width="20"
+            height="40"
+            fill="white"
+            transform="translate(40) rotate(90)"
+          />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+}
+
+export function DownIcon() {
+  return (
+    <svg
+      width="40"
+      height="20"
+      viewBox="0 0 40 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g clip-path="url(#clip0_472_9431)">
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M19.9998 14.4284L31.7848 2.64344L34.1415 5.00011L21.1782 17.9634C20.8656 18.2759 20.4418 18.4514 19.9998 18.4514C19.5579 18.4514 19.134 18.2759 18.8215 17.9634L5.85815 5.00011L8.21482 2.64344L19.9998 14.4284Z"
+          fill="#858585"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_472_9431">
+          <rect
+            width="20"
+            height="40"
+            fill="white"
+            transform="translate(0 20) rotate(-90)"
+          />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+}
+
+export default function PlusIcon() {
+  return (
+    <svg
+      width="25"
+      height="25"
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M24.2553 12.7813L14.0697 14.2128L15.5012 24.3984L12.106 24.8756L10.6745 14.69L0.48886 16.1215L0.011695 12.7263L10.1973 11.2948L8.76581 1.10915L12.161 0.63199L13.5925 10.8176L23.7781 9.38611L24.2553 12.7813Z"
+        fill="#858585"
+      />
+    </svg>
+  );
+}
