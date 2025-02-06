@@ -16,6 +16,17 @@ export function MiddleTitle() {
   );
 }
 
+export function FreeTitle({ size }) {
+  return (
+    <div
+      className={`font-['Helvetica'] font-black text-yellow text-${size} -tracking-widest`}
+    >
+      fest!
+    </div>
+  );
+}
+
+
 export function SmallTitle({ color }) {
   return (
     <div

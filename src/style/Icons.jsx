@@ -243,6 +243,25 @@ export function BackArrow() {
   );
 }
 
+export function ForwardArrow() {
+  return(
+    <svg 
+      width="24" 
+      height="24" 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path 
+      fill-rule="evenodd" c
+      lip-rule="evenodd" 
+      d="M14.657 12L7.58602 4.92899L9.00002 3.51498L16.778 11.293C16.9655 11.4805 17.0708 11.7348 17.0708 12C17.0708 12.2652 16.9655 12.5195 16.778 12.707L9.00001 20.485L7.58601 19.071L14.657 12Z" 
+      fill="#1D1D1D"/>
+    </svg>
+
+  );
+}
+
 export function FilledCheckBox({ state }) {
   return (
     <svg
@@ -541,9 +560,11 @@ export function CompleteIcon() {
   );
 }
 
-export function StarIcon() {
+export function StarIcon({ size }) {
+  const width = size.width
+  const height = size.height
   return (
-    <svg width="120" height="150" viewBox="0 0 120 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width={width} height={height} viewBox="0 0 120 150" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g filter="url(#filter0_f_524_3861)">
       <path d="M64 4L80.2054 55.8236L124 75L80.2054 94.1764L64 146L47.7946 94.1764L4 75L47.7946 55.8236L64 4Z" fill="url(#paint0_diamond_524_3861)" fill-opacity="0.3"/>
       </g>

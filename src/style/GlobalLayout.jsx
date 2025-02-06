@@ -9,7 +9,7 @@ export default function GlobalLayout() {
     <Suspense fallback={<Loading />}>
       <div
         className={`
-     px-[30px] 
+     px-[20px] 
      max-w-[640px]      
      h-full
     ${
