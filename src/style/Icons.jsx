@@ -540,3 +540,50 @@ export function CompleteIcon() {
     </>
   );
 }
+
+export function StartIcon() {
+  return (
+    <svg
+      width={120}
+      height={150}
+      viewBox="0 0 120 150"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="none"
+    >
+      <g filter="url(#filter0_f_524_3861)">
+        <path
+          d="M64 4L80.2054 55.8236L124 75L80.2054 94.1764L64 146L47.7946 94.1764L4 75L47.7946 55.8236L64 4Z"
+          fill="url(#paint0_diamond_524_3861)"
+          fill-opacity="0.3"
+        />
+      </g>
+      <defs>
+        <filter
+          id="filter0_f_524_3861"
+          x={0}
+          y={0}
+          width={128}
+          height={150}
+          filterUnits="userSpaceOnUse"
+          color-interpolation-filters="sRGB"
+        >
+          <feflood flood-opacity={0} result="BackgroundImageFix" />
+          <feblend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <fegaussianblur stdDeviation={2} result="effect1_foregroundBlur_524_3861" />
+        </filter>
+        <radialgradient
+          id="paint0_diamond_524_3861"
+          cx={0}
+          cy={0}
+          r={1}
+          gradientUnits="userSpaceOnUse"
+          gradientTransform="translate(64 75) rotate(90) scale(71 60)"
+        >
+          <stop stop-color="#FCAF16" />
+          <stop offset={1} stop-color="#FDFDFD" />
+        </radialgradient>
+      </defs>
+    </svg>
+  );
+}
