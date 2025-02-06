@@ -15,7 +15,8 @@ import AlertPage from "./pages/afterLogin/alert/AlertPage.jsx";
 import SignUpPolaroid from "./pages/afterLogin/signUpPolaroid/SignUpPolaroid";
 import FilterPolaroid from "./pages/afterLogin/signUpPolaroid/FilterPolaroid";
 import PrintPolaroid from "./pages/afterLogin/signUpPolaroid/PrintPolaroid";
-import UploadComplete from "./pages/afterLogin/signUpPolaroid/UploadComplete.jsx";
+import UploadComplete from "./pages/afterLogin/signUpPolaroid/UploadComplete";
+import Matching from "./pages/afterLogin/matching/Matching";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           {/* 로그인 이후 */}
           <Route path="main" element={<MainLayout />}>
             <Route index element={<Main />} />
+            <Route path="matching" element={<Matching/>} />
             <Route path="alert" element={<AlertPage />} />
             <Route path="mypage/:id" element={<Mypage />}></Route>
             <Route path="edit-profile" element={<EditProfile />} />
