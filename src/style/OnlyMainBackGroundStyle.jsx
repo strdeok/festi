@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { SnowFlake } from "../../../../style/Icons";
+import { SnowFlake } from "./Icons";
 
 export default function OnlyMainBackGroundStyle() {
   const [scrollHeight, setScrollHeight] = useState(0);

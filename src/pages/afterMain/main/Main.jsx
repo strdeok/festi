@@ -1,7 +1,7 @@
 import { MiddleTitle, SmallTitle } from "../../../components/Title";
 import ScrollButton from "./components/ScrollButton";
 import { SmallButton } from "../../../components/Button";
-import OnlyMainBackGroundStyle from "./components/OnlyMainBackGroundStyle";
+import OnlyMainBackGroundStyle from "../../../style/OnlyMainBackGroundStyle";
 import PolaroidSection from "./components/CardSection";
 import { useEffect } from "react";
 import Polaroids from "./components/Polaroids";
@@ -25,8 +25,12 @@ export default function Main() {
           <div className="text-xl text-black font-medium text-center w-48 my-8">
             유니들의 폴라로이드를 구경해보세요!
           </div>
-          <SmallButton title={"폴라로이드 등록하기"} color={"bg-yellow"} path={"/signup-polaroid"}/>
-          <Polaroids   />
+          <SmallButton
+            title={"폴라로이드 등록하기"}
+            color={"bg-yellow"}
+            path={"/signup-polaroid"}
+          />
+          <Polaroids />
         </main>
       </div>
 
