@@ -39,11 +39,11 @@ export default function Polaroids() {
             <div
               key={index}
               className={`w-28 h-36 relative flex justify-center pt-2 shadow-lg 
-              ${
-                pattern[index % pattern.length] === "a"
-                  ? "rotate-12"
-                  : "-rotate-12"
-              }`}
+                ${
+                  pattern[index % pattern.length] === "a"
+                    ? "rotate-12"
+                    : "-rotate-12"
+                }`}
               style={{
                 gridColumn: (index % 2) + 1,
                 gridRow: Math.floor(index) + 1,
@@ -77,10 +77,14 @@ export default function Polaroids() {
         <div
           className="w-24 h-28 object-fill relative top-1 bg-gray flex items-center justify-center"
           onClick={() => {
-            navigate("/폴라로이드만들기");
+            navigate("/signup-polaroid");
           }}
         >
-          <div className={images.length % 2 === 1 ? "rotate-12" : "-rotate-12"}>
+          <div
+            className={
+              images.length % 2 === 1 ? "-rotate-[8deg]" : "rotate-[8deg]"
+            }
+          >
             <PlusIcon />
           </div>
         </div>
