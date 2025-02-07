@@ -14,7 +14,7 @@ export default function Main() {
     <>
       <OnlyMainBackGroundStyle />
       <div className="w-full pb-32">
-        <main className="relative z-50 flex flex-col items-center">
+        <main className="relative flex flex-col items-center">
           <div className="mt-28 mb-8 text-center">
             <MiddleTitle />
             <p className="text-sm font-bold text-[#6c6c6c]">축제까지 D-3</p>
@@ -26,7 +26,7 @@ export default function Main() {
             유니들의 폴라로이드를 구경해보세요!
           </div>
           <SmallButton title={"폴라로이드 등록하기"} color={"bg-yellow"} />
-          <Polaroids   />
+          <Polaroids />
         </main>
       </div>
 

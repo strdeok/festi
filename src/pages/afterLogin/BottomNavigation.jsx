@@ -1,18 +1,13 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import {
-  Bell,
-  Glass,
-  HomeIcon,
-  Human,
-} from "../../../../style/Icons";
+import { Bell, Glass, HomeIcon, Human } from "../../style/Icons";
 
 export default function BottomNavigation() {
   const locate = useLocation();
   const navigate = useNavigate();
   const userId = "id"; // 임의 id
-  console.log(locate);
+
   return (
-    <div className="fixed -bottom-1 left-0 pt-5 w-screen h-20 flex flex-row bg-white drop-shadow-[0_-4px_6px_rgba(0,0,0,0.1)]  z-50">
+    <div className="fixed -bottom-1 left-0 pt-5 w-screen h-20 flex flex-row bg-white drop-shadow-[0_-4px_6px_rgba(0,0,0,0.1)]">
       <div
         onClick={() => {
           navigate("/main");

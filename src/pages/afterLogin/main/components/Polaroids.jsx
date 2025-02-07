@@ -1,7 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import PlusIcon from "../../../../style/Icons";
+import ViewFullImage from "./ViewFullImage";
+import { useState } from "react";
 
 export default function Polaroids() {
+  const [fullImage, setFullimage] = useState(null);
+
   const images = [
     "/images/sample image (1).jpg",
     "/images/sample image (2).jpg",
@@ -14,38 +18,47 @@ export default function Polaroids() {
     "/images/sample image (9).jpg",
   ];
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <div
       className="grid mt-16"
       style={{
-        gridTemplateColumns: "150px 150px",
+        gridTemplateColumns: "150px 100px",
       }}
     >
+      {fullImage != null ? (
+        <ViewFullImage image={fullImage} setFullimage={setFullimage} />
+      ) : null}
+
       {images.map((img, index) => {
-        const random_boolean = Math.random() < 0.5;
+        const [random_boolean] = useState(Math.random() < 0.5);
         return (
-          <div
-            key={index}
-            className={`w-28 h-36 relative flex justify-center pt-2 shadow-lg  
-              ${index % 2 === 1 ? "rotate-12" : "-rotate-12"}`}
-            style={{
-              gridColumn: (index % 2) + 1,
-              gridRow: Math.floor(index) + 1,
-            }}
-          >
+          <>
             <div
-              className={`rounded-full ${
-                random_boolean ? "bg-yellow" : "bg-navy"
-              } size-3 absolute z-10`}
-            ></div>
-            <img
-              src={img}
-              alt={img}
-              className="w-24 h-28 object-fill relative top-1"
-            />
-          </div>
+              key={index}
+              className={`w-28 h-36 relative flex justify-center pt-2 shadow-lg 
+                ${index % 2 === 1 ? "rotate-12" : "-rotate-12"}`}
+              style={{
+                gridColumn: (index % 2) + 1,
+                gridRow: Math.floor(index) + 1,
+              }}
+              onClick={() => {
+                setFullimage(img);
+              }}
+            >
+              <div
+                className={`rounded-full ${
+                  random_boolean ? "bg-yellow" : "bg-navy"
+                } size-3 absolute z-10`}
+              ></div>
+              <img
+                src={img}
+                alt={img}
+                className="w-24 h-28 object-fill relative top-1"
+              />
+            </div>
+          </>
         );
       })}
       <div
@@ -56,9 +69,10 @@ export default function Polaroids() {
           gridRow: Math.floor(images.length) + 1,
         }}
       >
-        <div className="w-24 h-28 object-fill relative top-1 bg-gray flex items-center justify-center"
-          onClick={()=>{
-            navigate("/폴라로이드만들기")
+        <div
+          className="w-24 h-28 object-fill relative top-1 bg-gray flex items-center justify-center"
+          onClick={() => {
+            navigate("/폴라로이드만들기");
           }}
         >
           <div className={images.length % 2 === 1 ? "rotate-12" : "-rotate-12"}>
