@@ -16,6 +16,16 @@ export default function BottomNavigation() {
       >
         <HomeIcon state={locate.pathname === "/main" ? true : false} />홈
       </div>
+      
+      <div
+        onClick={() => {
+          navigate("미정");
+        }}
+        className="flex flex-col items-center w-1/4"
+      >
+        <Glass />
+        주점팟 매칭
+      </div>
       <div
         onClick={() => {
           navigate("alert");
@@ -24,15 +34,6 @@ export default function BottomNavigation() {
       >
         <Bell state={locate.pathname === "/main/alert" ? true : false} />
         알림
-      </div>
-      <div
-        onClick={() => {
-          navigate("미정");
-        }}
-        className="flex flex-col items-center w-1/4"
-      >
-        <Glass />
-        주점팟
       </div>
       <div
         onClick={() => {
