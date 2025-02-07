@@ -22,7 +22,7 @@ export default function PolaroidSection() {
         animate={{ x: ["0%", "-50%"] }} // 왼쪽으로 이동
         transition={{
           ease: "linear",
-          duration: 10, // 이동 속도 조절 (작을수록 빠름)
+          duration: 20, // 이동 속도 조절 (작을수록 빠름)
           repeat: Infinity, // 무한 반복
         }}
       >

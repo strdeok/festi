@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
 import { Glass, Polaroid, RightArrow } from "../../../../style/Icons";
 
-export default function AlertContent({ alertType, alertConent, alertTime }) {
+export default function AlertContent({
+  alertType,
+  alertConent,
+  alertTime,
+  read,
+}) {
   const [alert, setAlert] = useState({
     icon: "",
     content: "",
@@ -14,10 +19,10 @@ export default function AlertContent({ alertType, alertConent, alertTime }) {
 
     switch (alertType) {
       case "party":
-        newAlert.icon = <Glass size={"21"} state={true} />;
+        newAlert.icon = <Glass size={"21"} state={read} />;
         break;
       case "polaroid":
-        newAlert.icon = <Polaroid size={"21"} />;
+        newAlert.icon = <Polaroid size={"21"} state={read} />;
         break;
     }
 
@@ -45,9 +50,10 @@ export default function AlertContent({ alertType, alertConent, alertTime }) {
   return (
     <div
       className={`flex flex-row justify-between py-6 px-5 ${
-        alertType === "party" ? "bg-[#FFFBF4]" : null
+        read ? "bg-[#FFFBF4]" : null
       }`}
     >
+      {read? <div className="size-2 rounded bg-[#FF0000] absolute" /> : null}
       <div className="flex flex-row items-center">
         <div className="size-8 mr-4 flex justify-center items-center">
           {alert.icon}
