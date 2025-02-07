@@ -9,8 +9,7 @@ export default function GlobalLayout() {
     <Suspense fallback={<Loading />}>
       <div
         className={`
-     px-[30px] 
-     max-w-[640px]      
+     px-[30px]     
      h-full
     ${
       location.pathname == "/main"
@@ -19,7 +18,7 @@ export default function GlobalLayout() {
     }
      `}
       >
-          <Outlet />
+        <Outlet />
       </div>
     </Suspense>
   );

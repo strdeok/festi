@@ -4,7 +4,7 @@ export function HomeIcon({ state }) {
   return (
     <svg
       width="21"
-      height="17"
+      height="18"
       viewBox="0 0 21 17"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -17,11 +17,11 @@ export function HomeIcon({ state }) {
   );
 }
 
-export function Polaroid({ state }) {
+export function Polaroid({ state, size }) {
   return (
     <svg
-      width="17"
-      height="18"
+      width={size ? size : "17"}
+      height={size ? size : "18"}
       viewBox="0 0 17 18"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -34,11 +34,11 @@ export function Polaroid({ state }) {
   );
 }
 
-export function Glass({ state }) {
+export function Glass({ state, size }) {
   return (
     <svg
-      width="17"
-      height="18"
+      width={size ? size : "17"}
+      height={size ? size : "18"}
       viewBox="0 0 17 18"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -61,8 +61,8 @@ export function Human({ state }) {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M5.875 4C5.875 2.93913 6.29643 1.92172 7.04657 1.17157C7.79672 0.421427 8.81413 0 9.875 0C10.9359 0 11.9533 0.421427 12.7034 1.17157C13.4536 1.92172 13.875 2.93913 13.875 4C13.875 5.06087 13.4536 6.07828 12.7034 6.82843C11.9533 7.57857 10.9359 8 9.875 8C8.81413 8 7.79672 7.57857 7.04657 6.82843C6.29643 6.07828 5.875 5.06087 5.875 4ZM5.875 10C4.54892 10 3.27715 10.5268 2.33947 11.4645C1.40178 12.4021 0.875 13.6739 0.875 15C0.875 15.7956 1.19107 16.5587 1.75368 17.1213C2.31629 17.6839 3.07935 18 3.875 18H15.875C16.6706 18 17.4337 17.6839 17.9963 17.1213C18.5589 16.5587 18.875 15.7956 18.875 15C18.875 13.6739 18.3482 12.4021 17.4105 11.4645C16.4729 10.5268 15.2011 10 13.875 10H5.875Z"
         fill={state ? "#FCAF16" : "#C6C6C6"}
       />
@@ -234,10 +234,29 @@ export function BackArrow() {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M3.343 12.0001L10.414 19.0711L9 20.4851L1.222 12.7071C1.03453 12.5196 0.929214 12.2653 0.929214 12.0001C0.929214 11.735 1.03453 11.4807 1.222 11.2931L9 3.51514L10.414 4.92914L3.343 12.0001Z"
         fill="black"
+      />
+    </svg>
+  );
+}
+
+export function RightArrow() {
+  return (
+    <svg
+      width="12"
+      height="24"
+      viewBox="0 0 12 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M8.65702 12.0001L1.58602 4.92911L3.00002 3.51511L10.778 11.2931C10.9655 11.4806 11.0708 11.7349 11.0708 12.0001C11.0708 12.2653 10.9655 12.5196 10.778 12.7071L3.00001 20.4851L1.58601 19.0711L8.65702 12.0001Z"
+        fill="#969696"
       />
     </svg>
   );
@@ -270,7 +289,7 @@ export function Bell({ state }) {
   return (
     <svg
       width="19"
-      height="21"
+      height="18"
       viewBox="0 0 19 21"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -295,50 +314,50 @@ export function SnowFlake({ size, color }) {
       <path
         d="M1 16H12.25"
         stroke={color}
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M19.75 16H31"
         stroke={color}
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M16 1L16 12.25"
         stroke={color}
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M16 19.75L16 31"
         stroke={color}
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M23.9688 8.03125L18.6953 13.3047"
         stroke={color}
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M13.3047 18.8125L8.03126 24.0859"
         stroke={color}
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M23.9688 23.9688L18.6953 18.6953"
         stroke={color}
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M13.3047 13.1875L8.03126 7.91407"
         stroke={color}
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
     </svg>
   );
@@ -353,10 +372,10 @@ export function UpIcon() {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_472_9428)">
+      <g clipPath="url(#clip0_472_9428)">
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M20.0002 5.57156L8.21518 17.3566L5.85851 14.9999L18.8218 2.03656C19.1344 1.72411 19.5582 1.54858 20.0002 1.54858C20.4421 1.54858 20.866 1.72411 21.1785 2.03656L34.1418 14.9999L31.7852 17.3566L20.0002 5.57156Z"
           fill="#858585"
         />
@@ -384,10 +403,10 @@ export function DownIcon() {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_472_9431)">
+      <g clipPath="url(#clip0_472_9431)">
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M19.9998 14.4284L31.7848 2.64344L34.1415 5.00011L21.1782 17.9634C20.8656 18.2759 20.4418 18.4514 19.9998 18.4514C19.5579 18.4514 19.134 18.2759 18.8215 17.9634L5.85815 5.00011L8.21482 2.64344L19.9998 14.4284Z"
           fill="#858585"
         />
@@ -584,6 +603,22 @@ export function StartIcon() {
           <stop offset={1} stop-color="#FDFDFD" />
         </radialgradient>
       </defs>
+    </svg>
+  );
+}
+export function CloseIcon() {
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 18 18"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M9.00006 10.8667L2.46673 17.4001C2.22229 17.6445 1.91118 17.7667 1.5334 17.7667C1.15562 17.7667 0.844509 17.6445 0.600065 17.4001C0.35562 17.1556 0.233398 16.8445 0.233398 16.4667C0.233398 16.089 0.35562 15.7778 0.600065 15.5334L7.1334 9.00006L0.600065 2.46673C0.35562 2.22229 0.233398 1.91118 0.233398 1.5334C0.233398 1.15562 0.35562 0.844509 0.600065 0.600065C0.844509 0.35562 1.15562 0.233398 1.5334 0.233398C1.91118 0.233398 2.22229 0.35562 2.46673 0.600065L9.00006 7.1334L15.5334 0.600065C15.7778 0.35562 16.089 0.233398 16.4667 0.233398C16.8445 0.233398 17.1556 0.35562 17.4001 0.600065C17.6445 0.844509 17.7667 1.15562 17.7667 1.5334C17.7667 1.91118 17.6445 2.22229 17.4001 2.46673L10.8667 9.00006L17.4001 15.5334C17.6445 15.7778 17.7667 16.089 17.7667 16.4667C17.7667 16.8445 17.6445 17.1556 17.4001 17.4001C17.1556 17.6445 16.8445 17.7667 16.4667 17.7667C16.089 17.7667 15.7778 17.6445 15.5334 17.4001L9.00006 10.8667Z"
+        fill="white"
+      />
     </svg>
   );
 }
