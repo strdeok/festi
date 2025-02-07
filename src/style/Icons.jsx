@@ -70,7 +70,7 @@ export function Human({ state }) {
   );
 }
 
-export function SmallStar() {
+export function StarSm() {
   return (
     <svg
       width="36"
@@ -124,7 +124,49 @@ export function SmallStar() {
   );
 }
 
-export function BigStar() {
+export function StarMedium() {
+  return (
+    <svg
+      width="83"
+      height="104"
+      viewBox="0 0 83 104"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g opacity="0.15" filter="url(#filter0_f_490_10286)">
+        <path
+          d="M47 12L56.4532 41.1964L82 52L56.4532 62.8036L47 92L37.5468 62.8036L12 52L37.5468 41.1964L47 12Z"
+          fill="#FCAF16"
+        />
+      </g>
+      <defs>
+        <filter
+          id="filter0_f_490_10286"
+          x="0"
+          y="0"
+          width="94"
+          height="104"
+          filterUnits="userSpaceOnUse"
+          color-interpolation-filters="sRGB"
+        >
+          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feBlend
+            mode="normal"
+            in="SourceGraphic"
+            in2="BackgroundImageFix"
+            result="shape"
+          />
+          <feGaussianBlur
+            stdDeviation="6"
+            result="effect1_foregroundBlur_490_10286"
+          />
+        </filter>
+      </defs>
+    </svg>
+  );
+}
+
+export function Starlg() {
   return (
     <svg
       width="123"
@@ -173,6 +215,48 @@ export function BigStar() {
           <stop stop-color="#FCAF16" />
           <stop offset="1" stop-color="#FDFDFD" />
         </radialGradient>
+      </defs>
+    </svg>
+  );
+}
+
+export function StarXl() {
+  return (
+    <svg
+      width="164"
+      height="186"
+      viewBox="0 0 164 186"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g opacity="0.15" filter="url(#filter0_f_461_6456)">
+        <path
+          d="M82 12L100.906 71.1227L152 93L100.906 114.877L82 174L63.0936 114.877L12 93L63.0936 71.1227L82 12Z"
+          fill="#FCAF16"
+        />
+      </g>
+      <defs>
+        <filter
+          id="filter0_f_461_6456"
+          x="0"
+          y="0"
+          width="164"
+          height="186"
+          filterUnits="userSpaceOnUse"
+          color-interpolation-filters="sRGB"
+        >
+          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feBlend
+            mode="normal"
+            in="SourceGraphic"
+            in2="BackgroundImageFix"
+            result="shape"
+          />
+          <feGaussianBlur
+            stdDeviation="6"
+            result="effect1_foregroundBlur_461_6456"
+          />
+        </filter>
       </defs>
     </svg>
   );
@@ -234,29 +318,10 @@ export function BackArrow() {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M3.343 12.0001L10.414 19.0711L9 20.4851L1.222 12.7071C1.03453 12.5196 0.929214 12.2653 0.929214 12.0001C0.929214 11.735 1.03453 11.4807 1.222 11.2931L9 3.51514L10.414 4.92914L3.343 12.0001Z"
-        fill="black"
-      />
-    </svg>
-  );
-}
-
-export function RightArrow() {
-  return (
-    <svg
-      width="12"
-      height="24"
-      viewBox="0 0 12 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
         fill-rule="evenodd"
         clip-rule="evenodd"
-        d="M8.65702 12.0001L1.58602 4.92911L3.00002 3.51511L10.778 11.2931C10.9655 11.4806 11.0708 11.7349 11.0708 12.0001C11.0708 12.2653 10.9655 12.5196 10.778 12.7071L3.00001 20.4851L1.58601 19.0711L8.65702 12.0001Z"
-        fill="#969696"
+        d="M3.343 12.0001L10.414 19.0711L9 20.4851L1.222 12.7071C1.03453 12.5196 0.929214 12.2653 0.929214 12.0001C0.929214 11.735 1.03453 11.4807 1.222 11.2931L9 3.51514L10.414 4.92914L3.343 12.0001Z"
+        fill="black"
       />
     </svg>
   );
@@ -314,48 +379,64 @@ export function SnowFlake({ size, color }) {
       <path
         d="M1 16H12.25"
         stroke={color}
+        stroke-width="2"
+        stroke-linecap="round"
         strokeWidth="2"
         strokeLinecap="round"
       />
       <path
         d="M19.75 16H31"
         stroke={color}
+        stroke-width="2"
+        stroke-linecap="round"
         strokeWidth="2"
         strokeLinecap="round"
       />
       <path
         d="M16 1L16 12.25"
         stroke={color}
+        stroke-width="2"
+        stroke-linecap="round"
         strokeWidth="2"
         strokeLinecap="round"
       />
       <path
         d="M16 19.75L16 31"
         stroke={color}
+        stroke-width="2"
+        stroke-linecap="round"
         strokeWidth="2"
         strokeLinecap="round"
       />
       <path
         d="M23.9688 8.03125L18.6953 13.3047"
         stroke={color}
+        stroke-width="2"
+        stroke-linecap="round"
         strokeWidth="2"
         strokeLinecap="round"
       />
       <path
         d="M13.3047 18.8125L8.03126 24.0859"
         stroke={color}
+        stroke-width="2"
+        stroke-linecap="round"
         strokeWidth="2"
         strokeLinecap="round"
       />
       <path
         d="M23.9688 23.9688L18.6953 18.6953"
         stroke={color}
+        stroke-width="2"
+        stroke-linecap="round"
         strokeWidth="2"
         strokeLinecap="round"
       />
       <path
         d="M13.3047 13.1875L8.03126 7.91407"
         stroke={color}
+        stroke-width="2"
+        stroke-linecap="round"
         strokeWidth="2"
         strokeLinecap="round"
       />
@@ -445,32 +526,32 @@ export default function PlusIcon() {
 export function CameraIcon() {
   return (
     <div className="flex justify-start items-center flex-grow-0 flex-shrink-0 gap-2.5 px-10 pt-8 pb-10 rounded-2xl border border-[#f3f3f3]">
-    <div className="flex flex-col justify-start items-center flex-grow-0 flex-shrink-0 w-14 relative gap-2">
-      <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative gap-2.5 px-2.5 py-3">
-        <svg
-          width={36}
-          height={32}
-          viewBox="0 0 36 32"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="flex-grow-0 flex-shrink-0"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M3.6 3.55556H9L12.6 0H23.4L27 3.55556H32.4C33.3548 3.55556 34.2705 3.93016 34.9456 4.59695C35.6207 5.26375 36 6.16812 36 7.11111V28.4444C36 29.3874 35.6207 30.2918 34.9456 30.9586C34.2705 31.6254 33.3548 32 32.4 32H3.6C2.64522 32 1.72955 31.6254 1.05442 30.9586C0.379284 30.2918 0 29.3874 0 28.4444V7.11111C0 6.16812 0.379284 5.26375 1.05442 4.59695C1.72955 3.93016 2.64522 3.55556 3.6 3.55556ZM18 8.88889C15.6131 8.88889 13.3239 9.82539 11.636 11.4924C9.94821 13.1594 9 15.4203 9 17.7778C9 20.1353 9.94821 22.3962 11.636 24.0632C13.3239 25.7302 15.6131 26.6667 18 26.6667C20.3869 26.6667 22.6761 25.7302 24.364 24.0632C26.0518 22.3962 27 20.1353 27 17.7778C27 15.4203 26.0518 13.1594 24.364 11.4924C22.6761 9.82539 20.3869 8.88889 18 8.88889ZM18 12.4444C19.4322 12.4444 20.8057 13.0063 21.8184 14.0065C22.8311 15.0067 23.4 16.3633 23.4 17.7778C23.4 19.1923 22.8311 20.5488 21.8184 21.549C20.8057 22.5492 19.4322 23.1111 18 23.1111C16.5678 23.1111 15.1943 22.5492 14.1816 21.549C13.1689 20.5488 12.6 19.1923 12.6 17.7778C12.6 16.3633 13.1689 15.0067 14.1816 14.0065C15.1943 13.0063 16.5678 12.4444 18 12.4444Z"
-            fill="#C6C6C6"
-          />
-        </svg>
+      <div className="flex flex-col justify-start items-center flex-grow-0 flex-shrink-0 w-14 relative gap-2">
+        <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative gap-2.5 px-2.5 py-3">
+          <svg
+            width={36}
+            height={32}
+            viewBox="0 0 36 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="flex-grow-0 flex-shrink-0"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M3.6 3.55556H9L12.6 0H23.4L27 3.55556H32.4C33.3548 3.55556 34.2705 3.93016 34.9456 4.59695C35.6207 5.26375 36 6.16812 36 7.11111V28.4444C36 29.3874 35.6207 30.2918 34.9456 30.9586C34.2705 31.6254 33.3548 32 32.4 32H3.6C2.64522 32 1.72955 31.6254 1.05442 30.9586C0.379284 30.2918 0 29.3874 0 28.4444V7.11111C0 6.16812 0.379284 5.26375 1.05442 4.59695C1.72955 3.93016 2.64522 3.55556 3.6 3.55556ZM18 8.88889C15.6131 8.88889 13.3239 9.82539 11.636 11.4924C9.94821 13.1594 9 15.4203 9 17.7778C9 20.1353 9.94821 22.3962 11.636 24.0632C13.3239 25.7302 15.6131 26.6667 18 26.6667C20.3869 26.6667 22.6761 25.7302 24.364 24.0632C26.0518 22.3962 27 20.1353 27 17.7778C27 15.4203 26.0518 13.1594 24.364 11.4924C22.6761 9.82539 20.3869 8.88889 18 8.88889ZM18 12.4444C19.4322 12.4444 20.8057 13.0063 21.8184 14.0065C22.8311 15.0067 23.4 16.3633 23.4 17.7778C23.4 19.1923 22.8311 20.5488 21.8184 21.549C20.8057 22.5492 19.4322 23.1111 18 23.1111C16.5678 23.1111 15.1943 22.5492 14.1816 21.549C13.1689 20.5488 12.6 19.1923 12.6 17.7778C12.6 16.3633 13.1689 15.0067 14.1816 14.0065C15.1943 13.0063 16.5678 12.4444 18 12.4444Z"
+              fill="#C6C6C6"
+            />
+          </svg>
+        </div>
+        <p className="self-stretch flex-grow-0 flex-shrink-0 w-14 text-sm font-medium text-center text-[#969696]">
+          카메라
+        </p>
       </div>
-      <p className="self-stretch flex-grow-0 flex-shrink-0 w-14 text-sm font-medium text-center text-[#969696]">
-        카메라
-      </p>
     </div>
-  </div>
   );
 }
 
-export function ImageIcon(){
+export function ImageIcon() {
   return (
     <div className="flex flex-col justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2 px-10 pt-8 pb-10 rounded-2xl border border-[#f3f3f3]">
       <div className="flex justify-start items-center self-stretch flex-grow-0 flex-shrink-0 relative gap-2.5 px-3 py-2.5">
@@ -516,11 +597,11 @@ export function SelectedCameraIcon() {
             />
           </svg>
         </div>
-      <p className="self-stretch flex-grow-0 flex-shrink-0 w-14 text-sm font-medium text-center text-[#fcaf16]">
-        카메라
-      </p>
+        <p className="self-stretch flex-grow-0 flex-shrink-0 w-14 text-sm font-medium text-center text-[#fcaf16]">
+          카메라
+        </p>
+      </div>
     </div>
-  </div>
   );
 }
 
@@ -542,11 +623,11 @@ export function SelectedImageIcon() {
             fill="#FCAF16"
           />
         </svg>
+      </div>
+      <p className="self-stretch flex-grow-0 flex-shrink-0 w-14 text-sm font-medium text-center text-[#fcaf16]">
+        이미지
+      </p>
     </div>
-    <p className="self-stretch flex-grow-0 flex-shrink-0 w-14 text-sm font-medium text-center text-[#fcaf16]">
-      이미지
-    </p>
-  </div>
   );
 }
 
@@ -554,7 +635,7 @@ export function CompleteIcon() {
   return (
     <>
       <div className="flex justify-center items-center rounded-full w-16 h-16 bg-[#FFF7E8]">
-        <IoCheckmark fontWeight={900} size = "45" color = "#FCAF16"/>
+        <IoCheckmark fontWeight={900} size="45" color="#FCAF16" />
       </div>
     </>
   );
@@ -588,8 +669,16 @@ export function StartIcon() {
           color-interpolation-filters="sRGB"
         >
           <feflood flood-opacity={0} result="BackgroundImageFix" />
-          <feblend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-          <fegaussianblur stdDeviation={2} result="effect1_foregroundBlur_524_3861" />
+          <feblend
+            mode="normal"
+            in="SourceGraphic"
+            in2="BackgroundImageFix"
+            result="shape"
+          />
+          <fegaussianblur
+            stdDeviation={2}
+            result="effect1_foregroundBlur_524_3861"
+          />
         </filter>
         <radialgradient
           id="paint0_diamond_524_3861"
@@ -603,6 +692,25 @@ export function StartIcon() {
           <stop offset={1} stop-color="#FDFDFD" />
         </radialgradient>
       </defs>
+    </svg>
+  );
+}
+
+export function RightArrow() {
+  return (
+    <svg
+      width="12"
+      height="24"
+      viewBox="0 0 12 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M8.65702 12.0001L1.58602 4.92911L3.00002 3.51511L10.778 11.2931C10.9655 11.4806 11.0708 11.7349 11.0708 12.0001C11.0708 12.2653 10.9655 12.5196 10.778 12.7071L3.00001 20.4851L1.58601 19.0711L8.65702 12.0001Z"
+        fill="#969696"
+      />
     </svg>
   );
 }

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Button from "./Button";
+import Button from "../../../components/Button";
 import Input from "./Input";
 
 export default function Login() {
@@ -20,14 +20,14 @@ export default function Login() {
       <div className="grid w-full gap-4 my-20">
         <Input
           setInput={setLoginInput}
-          info={"id"}
+          name={"id"}
           type={"text"}
           placeholder={"아이디를 입력"}
           input={loginInput}
         />
         <Input
           setInput={setLoginInput}
-          info={"password"}
+          name={"password"}
           type={"password"}
           placeholder={"비밀번호를 입력"}
           input={loginInput}

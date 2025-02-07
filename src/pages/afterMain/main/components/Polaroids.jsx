@@ -5,6 +5,7 @@ import { useState } from "react";
 
 export default function Polaroids() {
   const [fullImage, setFullimage] = useState(null);
+  const pattern = ["a", "b", "b", "a", "a"];
 
   const images = [
     "/images/sample image (1).jpg",
@@ -38,7 +39,11 @@ export default function Polaroids() {
             <div
               key={index}
               className={`w-28 h-36 relative flex justify-center pt-2 shadow-lg 
-                ${index % 2 === 1 ? "rotate-12" : "-rotate-12"}`}
+              ${
+                pattern[index % pattern.length] === "a"
+                  ? "rotate-12"
+                  : "-rotate-12"
+              }`}
               style={{
                 gridColumn: (index % 2) + 1,
                 gridRow: Math.floor(index) + 1,
