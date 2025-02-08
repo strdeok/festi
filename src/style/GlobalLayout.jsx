@@ -2,7 +2,6 @@ import { Outlet, useLocation } from "react-router-dom";
 
 export default function GlobalLayout() {
   const location = useLocation();
-  console.log(location.pathname);
   return (
     <div
       className={`px-[30px] h-full ${

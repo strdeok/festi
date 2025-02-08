@@ -64,7 +64,7 @@ export default function AlertContent({
         </div>
       </div>
       <button>
-        <RightArrow />
+        <RightArrow width={"12"} height={"24"} />
       </button>
     </div>
   );
