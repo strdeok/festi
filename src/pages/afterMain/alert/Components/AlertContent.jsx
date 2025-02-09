@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import useNavigate from "react-router-dom"
 import { Glass, Polaroid, RightArrow } from "../../../../style/Icons";
 
 export default function AlertContent({
@@ -12,7 +13,7 @@ export default function AlertContent({
     content: "",
   });
 
-  const [state, setState] = useState(false); // 알림 읽지 않았을때 true(일껄 아마도)
+  const navigate = useNavigate()
 
   useEffect(() => {
     let newAlert = { icon: "", content: "" };
@@ -53,18 +54,24 @@ export default function AlertContent({
         read ? "bg-[#FFFBF4]" : null
       }`}
     >
-      {read? <div className="size-2 rounded bg-[#FF0000] absolute" /> : null}
+      {read ? <div className="size-2 rounded bg-[#FF0000] absolute" /> : null}
       <div className="flex flex-row items-center">
         <div className="size-8 mr-4 flex justify-center items-center">
           {alert.icon}
         </div>
+
         <div className="flex flex-col ">
           <div className="font-semibold mb-2">{alert.content}</div>
           <div className="text-darkgray">{alertTime}</div>
         </div>
       </div>
-      <button>
-        <RightArrow />
+
+      <button onClick={()=>{
+        if (alertConent === "주점팟 매칭 완료"){
+          navigate("/matching-result")
+        }
+      }}>
+        <RightArrow width={"12"} height={"24"} />
       </button>
     </div>
   );

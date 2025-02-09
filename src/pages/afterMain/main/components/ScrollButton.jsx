@@ -11,13 +11,13 @@ export default function ScrollButton() {
         onClick={() => handleScroll(0)}
         className="size-10 bg-white bg-opacity-50"
       >
-        <UpIcon />
+        <UpIcon width={"40"} height={"20"} />
       </button>
       <button
         onClick={() => handleScroll(document.documentElement.scrollHeight)}
         className="size-10 bg-white bg-opacity-50"
       >
-        <DownIcon />
+        <DownIcon width={"40"} height={"20"} />
       </button>
     </div>
   );

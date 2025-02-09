@@ -1,29 +1,23 @@
-import { Link, Outlet } from "react-router-dom";
-import Button from "../../../components/Button";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import BasicMypage from "./components/BasicMypage";
+import EditNickName from "./edit-nickname/EditNickName";
 
 export default function Mypage() {
-  return (
-    <div>
-      <header>
-        <div>200000000</div>
-        <p>닉네임</p>
-      </header>
+  const locationHook = useLocation();
+  const [currentLastUrl, setCurrentLastUrl] = useState(null);
+  
+  useEffect(() => {
+    const splitUrl = locationHook?.pathname?.split("/") ?? null;
+    const location =
+      splitUrl?.length > 1 ? splitUrl[splitUrl.length - 1] : null;
+    setCurrentLastUrl(location);
+  }, [locationHook]);
 
-      <main className="flex flex-col">
-        <Link to={"manage-polaroid"}>
-          <Button title={"내 폴라로이드 관리"} />
-        </Link>
-        <Link to={"edit-profile"}>
-          <Button title={"프로필 수정"} />
-        </Link>
-      </main>
-      <Outlet />
-
-      <footer>
-        <Link to={"/"}>
-          <Button title={"로그아웃"} />
-        </Link>
-      </footer>
-    </div>
-  );
+  switch (currentLastUrl) {
+    case "edit-nickname":
+      return <EditNickName />;
+    default:
+      return <BasicMypage />;
+  }
 }

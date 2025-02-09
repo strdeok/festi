@@ -11,16 +11,20 @@ export default function BottomNavigation() {
         onClick={() => {
           navigate("/main");
         }}
-        className="flex flex-col items-center w-1/4"
+        className={`flex flex-col gap-2 items-center w-1/4 ${
+          locate.pathname === "/main" ? "text-yellow" : ""
+        }`}
       >
         <HomeIcon state={locate.pathname === "/main" ? true : false} />홈
       </div>
 
       <div
         onClick={() => {
-          navigate("미정");
+          navigate("/미정");
         }}
-        className="flex flex-col items-center w-1/4"
+        className={`flex flex-col gap-2 items-center w-1/4 ${
+          locate.pathname === "/미정" ? "text-yellow" : ""
+        }`}
       >
         <Glass />
         주점팟 매칭
@@ -29,18 +33,22 @@ export default function BottomNavigation() {
         onClick={() => {
           navigate("alert");
         }}
-        className="flex flex-col items-center w-1/4"
+        className={`flex flex-col gap-2 items-center w-1/4 ${
+          locate.pathname === "/alert" ? "text-yellow" : ""
+        }`}
       >
-        <Bell state={locate.pathname === "/main/alert" ? true : false} />
+        <Bell state={locate.pathname === "/alert" ? true : false} />
         알림
       </div>
       <div
         onClick={() => {
           navigate(`mypage/${userId}`);
         }}
-        className="flex flex-col items-center w-1/4"
+        className={`flex flex-col gap-2 items-center w-1/4 ${
+          locate.pathname === `/mypage/${userId}` ? "text-yellow" : ""
+        }`}
       >
-        <Human state={locate.pathname == `/main/mypage/${userId}`} />
+        <Human state={locate.pathname == `/mypage/${userId}`} />
         마이페이지
       </div>
     </div>
