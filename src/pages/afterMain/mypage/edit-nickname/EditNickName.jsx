@@ -23,7 +23,7 @@ export default function EditNickName() {
 
   return (
     <div className="flex flex-col h-full">
-      <header className="flex flex-row font-bold text-lg justify-center py-4">
+      <header className="flex flex-row font-bold text-lg justify-between items-center py-4">
         <div
           className="relative right-1/3"
           onClick={() => {
@@ -32,29 +32,27 @@ export default function EditNickName() {
         >
           <BackArrow />
         </div>
-        닉네임 변경
+        <span className="mx-auto">닉네임 변경</span>
       </header>
 
       <p className="mt-4 font-semibold text-sm text-[#969696]">
         {user.userInfo}
       </p>
 
-     
-        <div className="mt-6">
-          <p className="font-bold mb-3">닉네임 변경</p>
-          <Input
-            placeholder={"닉네임 입력"}
-            input={nickname}
-            setInput={setNickname}
-            type={"text"}
-          />
-        </div>
-        <div className="flex-grow" />
+      <div className="mt-6">
+        <p className="font-bold mb-3">닉네임 변경</p>
+        <Input
+          placeholder={"닉네임 입력"}
+          input={nickname}
+          setInput={setNickname}
+          type={"text"}
+        />
+      </div>
+      <div className="flex-grow" />
 
-        <div className="mb-4">
-          <Button state={state} title={"변경하기"} path={"/mypage/id"} />
-        </div>
-   
+      <div className="mb-4">
+        <Button state={state} title={"변경하기"} path={"/mypage/id"} />
+      </div>
     </div>
   );
 }

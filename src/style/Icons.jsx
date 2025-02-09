@@ -444,11 +444,11 @@ export function SnowFlake({ size, color }) {
   );
 }
 
-export function UpIcon() {
+export function UpIcon({width, height}) {
   return (
     <svg
-      width="40"
-      height="20"
+      width={width}
+      height={height}
       viewBox="0 0 40 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -475,11 +475,11 @@ export function UpIcon() {
   );
 }
 
-export function DownIcon() {
+export function DownIcon({width, height}) {
   return (
     <svg
-      width="40"
-      height="20"
+      width={width}
+      height={height}
       viewBox="0 0 40 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -696,7 +696,7 @@ export function StartIcon() {
   );
 }
 
-export function RightArrow({width, height}) {
+export function RightArrow({ width, height }) {
   return (
     <svg
       width={width}
@@ -730,5 +730,3 @@ export function CloseIcon() {
     </svg>
   );
 }
-
-

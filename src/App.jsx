@@ -18,6 +18,7 @@ import UploadComplete from "./pages/afterMain/signUpPolaroid/UploadComplete.jsx"
 import Loading from "./pages/beforeMain/Loading.jsx";
 import EditNickName from "./pages/afterMain/mypage/edit-nickname/EditNickName.jsx";
 import DeleteAcount from "./pages/afterMain/main/components/DeleteAcount.jsx";
+import MatchingResult from "./pages/afterMain/matchingResult/matchingResult.jsx";
 
 function App() {
   return (
@@ -41,7 +42,11 @@ function App() {
             <Route path="delete-polaroid" element={<DeletePolaroid />} />
           </Route>
         </Route>
+
+        {/* 메인이후 + 레이아웃 벗어남 (BottomNavigation 미적용) */}
         <Route path="mypage/:id/edit-nickname" element={<EditNickName />} />
+        <Route path="matching-result" element={<MatchingResult />} />
+
         {/* 폴라로이드 등록 */}
         <Route path="signup-polaroid" element={<SignUpPolaroid />} />
         <Route
