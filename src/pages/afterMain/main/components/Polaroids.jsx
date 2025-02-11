@@ -3,7 +3,7 @@ import PlusIcon from "../../../../style/Icons";
 import ViewFullImage from "./ViewFullImage";
 import { useState } from "react";
 
-export default function Polaroids() {
+export default function Polaroids({ columns }) {
   const [fullImage, setFullimage] = useState(null);
   const pattern = ["a", "b", "b", "a", "a"];
 
@@ -22,12 +22,7 @@ export default function Polaroids() {
   const navigate = useNavigate();
 
   return (
-    <div
-      className="grid mt-16"
-      style={{
-        gridTemplateColumns: "150px 100px",
-      }}
-    >
+    <div className="grid mt-16 w-full justify-around">
       {fullImage != null ? (
         <ViewFullImage image={fullImage} setFullimage={setFullimage} />
       ) : null}

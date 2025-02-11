@@ -7,8 +7,6 @@ import Main from "./pages/afterMain/main/Main";
 import Mypage from "./pages/afterMain/mypage/Mypage";
 import ManagePolaroid from "./pages/afterMain/mypage/manage-polaroid/ManagePolaroid";
 import GlobalLayout from "./style/GlobalLayout";
-import DeletePolaroid from "./pages/afterMain/mypage/manage-polaroid/DeletePolaroid";
-import ModifyPolaroid from "./pages/afterMain/mypage/manage-polaroid/ModifyPolaroid";
 import MainLayout from "./style/MainLayout";
 import AlertPage from "./pages/afterMain/alert/AlertPage.jsx";
 import SignUpPolaroid from "./pages/afterMain/signUpPolaroid/SignUpPolaroid";
@@ -18,7 +16,7 @@ import UploadComplete from "./pages/afterMain/signUpPolaroid/UploadComplete.jsx"
 import Loading from "./pages/beforeMain/Loading.jsx";
 import EditNickName from "./pages/afterMain/mypage/edit-nickname/EditNickName.jsx";
 import DeleteAcount from "./pages/afterMain/main/components/DeleteAcount.jsx";
-import MatchingResult from "./pages/afterMain/matchingResult/matchingResult.jsx";
+import MatchingResult from "./pages/afterMain/matchingResult/MatchingResult.jsx";
 
 function App() {
   return (
@@ -36,17 +34,12 @@ function App() {
           <Route path="mypage/:id" element={<Mypage />}>
             <Route path="delete-acount" element={<DeleteAcount />} />
           </Route>
-
-          <Route path="manage-polaroid" element={<ManagePolaroid />}>
-            <Route path="modify-polaroid" element={<ModifyPolaroid />} />
-            <Route path="delete-polaroid" element={<DeletePolaroid />} />
-          </Route>
         </Route>
 
         {/* 메인이후 + 레이아웃 벗어남 (BottomNavigation 미적용) */}
         <Route path="mypage/:id/edit-nickname" element={<EditNickName />} />
         <Route path="matching-result" element={<MatchingResult />} />
-
+        <Route path="mypage/:id/manage-polaroid" element={<ManagePolaroid />} />
         {/* 폴라로이드 등록 */}
         <Route path="signup-polaroid" element={<SignUpPolaroid />} />
         <Route
