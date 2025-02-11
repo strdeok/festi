@@ -16,7 +16,7 @@ import UploadComplete from "./pages/afterMain/signUpPolaroid/UploadComplete.jsx"
 import Loading from "./pages/beforeMain/Loading.jsx";
 import EditNickName from "./pages/afterMain/mypage/edit-nickname/EditNickName.jsx";
 import DeleteAcount from "./pages/afterMain/main/components/DeleteAcount.jsx";
-import MatchingResult from "./pages/afterMain/matchingResult/matchingResult.jsx";
+import MatchingResult from "./pages/afterMain/matchingResult/MatchingResult.jsx";
 
 function App() {
   return (
