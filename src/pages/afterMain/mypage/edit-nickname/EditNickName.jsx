@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { BackArrow } from "../../../../style/Icons";
 import Input from "../../../beforeMain/components/Input";
 import Button from "../../../../components/Button";
-import { useNavigate } from "react-router-dom";
 
 export default function EditNickName() {
   const [user, setUser] = useState({

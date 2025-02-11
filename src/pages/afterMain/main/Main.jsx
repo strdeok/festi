@@ -1,4 +1,4 @@
-import { MiddleTitle, SmallTitle } from "../../../components/Title";
+import { MiddleTitle } from "../../../components/Title";
 import ScrollButton from "./components/ScrollButton";
 import { SmallButton } from "../../../components/Button";
 import OnlyMainBackGroundStyle from "../../../style/OnlyMainBackGroundStyle";
@@ -34,7 +34,7 @@ export default function Main() {
         </main>
       </div>
 
-      <ScrollButton />
+      <ScrollButton bottom={"bottom-28"} />
     </>
   );
 }

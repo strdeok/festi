@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import useNavigate from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import { Glass, Polaroid, RightArrow } from "../../../../style/Icons";
 
 export default function AlertContent({
@@ -13,7 +13,7 @@ export default function AlertContent({
     content: "",
   });
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     let newAlert = { icon: "", content: "" };
@@ -66,11 +66,13 @@ export default function AlertContent({
         </div>
       </div>
 
-      <button onClick={()=>{
-        if (alertConent === "주점팟 매칭 완료"){
-          navigate("/matching-result")
-        }
-      }}>
+      <button
+        onClick={() => {
+          if (alertConent === "주점팟 매칭 완료") {
+            navigate("/matching-result");
+          }
+        }}
+      >
         <RightArrow width={"12"} height={"24"} />
       </button>
     </div>

@@ -1,10 +1,13 @@
 import dayjs from "dayjs";
 import Button from "../../../components/Button";
 import { BackArrow, DownIcon, UpIcon } from "../../../style/Icons";
-import { act, useState } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function MatchingResult() {
   const today = dayjs().format("M월 D일");
+  const navigate = useNavigate();
+
   const [matchingResult, setMatchingResult] = useState([
     {
       nickname: "닉네임1",
@@ -60,7 +63,11 @@ export default function MatchingResult() {
                   }}
                 >
                   <span className="font-bold">{data.nickname} </span>
-                 {active ? <UpIcon width={"12"} height={"24"} /> :<DownIcon width={"12"} height={"24"} />}
+                  {active ? (
+                    <UpIcon width={"12"} height={"24"} />
+                  ) : (
+                    <DownIcon width={"12"} height={"24"} />
+                  )}
                 </div>
 
                 {active ? (
