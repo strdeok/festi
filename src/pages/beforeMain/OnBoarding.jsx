@@ -11,7 +11,7 @@ export default function OnBoarding() {
       className="flex flex-col w-full h-full overflow-hidden
      bg-[radial-gradient(50%_50%_at_50%_50%,rgba(252,175,22,0.05)_0%,rgba(253,253,253,0.05)_100%)]"
     >
-      <button
+      {/* <button
         className="py-[15px]"
         onClick={() => {
           if (step === 1) {
@@ -20,10 +20,20 @@ export default function OnBoarding() {
         }}
       >
         <BackArrow />
-      </button>
+      </button> */}
 
-      <div id="progress-bar" className="w-full h-1 bg-[#F0F0F0]">
-        <div className=" h-full bg-yellow" style={{ width: `${step * 25}%` }} />
+      <div
+        id="progress-dot"
+        className="mt-6 flex flex-row justify-center gap-1"
+      >
+        {[...Array(4)].map((_, index) => (
+          <div
+            key={index}
+            className={`size-2 ${
+              index === step - 1 ? "bg-yellow" : "bg-gray"
+            } rounded-full`}
+          />
+        ))}
       </div>
 
       <OnBoardingCarousel step={step} />
