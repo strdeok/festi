@@ -15,17 +15,20 @@ import PrintPolaroid from "./pages/afterMain/signUpPolaroid/PrintPolaroid";
 import UploadComplete from "./pages/afterMain/signUpPolaroid/UploadComplete.jsx";
 import Loading from "./pages/beforeMain/Loading.jsx";
 import EditNickName from "./pages/afterMain/mypage/edit-nickname/EditNickName.jsx";
-import DeleteAcount from "./pages/afterMain/main/components/DeleteAcount.jsx";
 import MatchingResult from "./pages/afterMain/matchingResult/MatchingResult.jsx";
+import DeleteAcount from "./pages/afterMain/mypage/DeleteAcount.jsx";
+import DeletePolaroidsModal from "./pages/afterMain/mypage/manage-polaroid/components/DeletePolaroidsModal.jsx";
+import OnBoarding from "./pages/beforeMain/OnBoarding.jsx";
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<GlobalLayout />}>
         {/* 메인 이전 */}
-        <Route path="/" element={<Loading />} />
+        <Route index element={<Loading />} />
         <Route path="login" element={<Home />} />
         <Route path="check-policy" element={<PrivacyPolicy />} />
+        <Route path="introducing" element={<OnBoarding />} />
         <Route path="set-nickname" element={<SetNickName />} />
         {/* 메인 이후 */}
         <Route element={<MainLayout />}>
@@ -39,7 +42,9 @@ function App() {
         {/* 메인이후 + 레이아웃 벗어남 (BottomNavigation 미적용) */}
         <Route path="mypage/:id/edit-nickname" element={<EditNickName />} />
         <Route path="matching-result" element={<MatchingResult />} />
-        <Route path="mypage/:id/manage-polaroid" element={<ManagePolaroid />} />
+        <Route path="mypage/:id/manage-polaroid" element={<ManagePolaroid />}>
+          <Route path="delete-polaroid" element={<DeletePolaroidsModal />} />
+        </Route>
         {/* 폴라로이드 등록 */}
         <Route path="signup-polaroid" element={<SignUpPolaroid />} />
         <Route
