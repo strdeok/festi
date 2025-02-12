@@ -96,9 +96,10 @@ export default function OnBoardingCarousel({ step }) {
 
   return (
     <div
-      className={`relative h-full -ml-8 flex flex-row w-max -translate-x-${
-        step - 1
-      }/4 transition-all`}
+      className="relative h-full -ml-8 flex flex-row w-max  transition-all"
+      style={{
+        transform: `translateX(-${(step - 1) * 25}%)`,
+      }}
     >
       <First />
       <Second />

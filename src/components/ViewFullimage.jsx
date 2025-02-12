@@ -18,10 +18,18 @@ export default function ViewFullImage({ image, setFullimage }) {
 
     default:
       return (
-        <div className="fixed top-0 left-0 bg-black bg-opacity-25 w-full h-full z-10 flex items-center justify-center">
-          <div className="fixed  z-20 w-72 h-96 flex justify-center p-2 bg-white">
+        <div
+          className="fixed top-0 left-0 bg-black bg-opacity-25 w-full h-full z-10 flex items-center justify-center"
+          onClick={closeFullImage}
+        >
+          <div
+            className="fixed  z-20 w-72 h-96 flex justify-center p-2 bg-white"
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+          >
             <button
-              className="absolute -top-10 -right-6"
+              className="absolute -top-10 left-[95%]"
               onClick={closeFullImage}
             >
               <CloseIcon />

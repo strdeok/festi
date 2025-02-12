@@ -23,7 +23,7 @@ export default function OnBoarding() {
       </button>
 
       <div id="progress-bar" className="w-full h-1 bg-[#F0F0F0]">
-        <div className={`w-${step}/4 h-full bg-yellow`} />
+        <div className=" h-full bg-yellow" style={{ width: `${step * 25}%` }} />
       </div>
 
       <OnBoardingCarousel step={step} />
@@ -36,7 +36,10 @@ export default function OnBoarding() {
           onClick={() => {
             if (step === 4) {
               navigate("/set-nickname");
-            } else setStep((prev) => prev + 1);
+            } else {
+              setStep((prev) => prev + 1);
+            }
+            console.log(step);
           }}
         >
           다음
