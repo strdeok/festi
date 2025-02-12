@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { BackArrow } from "../../../../style/Icons";
 import Input from "../../../beforeMain/components/Input";
 import Button from "../../../../components/Button";
@@ -11,6 +11,7 @@ export default function EditNickName() {
   });
 
   const navigate = useNavigate();
+  const params = useParams();
 
   const [nickname, setNickname] = useState("");
   const [state, setState] = useState(false);
@@ -25,9 +26,8 @@ export default function EditNickName() {
     <div className="flex flex-col h-full">
       <header className="flex flex-row font-bold text-lg justify-between items-center py-4">
         <div
-          className="relative right-1/3"
           onClick={() => {
-            navigate("/mypage/id");
+            navigate(-1);
           }}
         >
           <BackArrow />
@@ -51,7 +51,7 @@ export default function EditNickName() {
       <div className="flex-grow" />
 
       <div className="mb-4">
-        <Button state={state} title={"변경하기"} path={"/mypage/id"} />
+        <Button state={state} title={"변경하기"} path={`/mypage/${params.id}`} />
       </div>
     </div>
   );

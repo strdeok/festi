@@ -1,4 +1,4 @@
-import { DownIcon, UpIcon } from "../../../../style/Icons";
+import { DownIcon, UpIcon } from "../style/Icons";
 
 export default function ScrollButton({bottom}) {
   const handleScroll = (position) => {

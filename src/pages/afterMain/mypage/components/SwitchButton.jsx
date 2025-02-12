@@ -1,7 +1,6 @@
 export default function SwitchButton({
   agreement,
   setAgreement,
-  active,
   setActive,
 }) {
   return (

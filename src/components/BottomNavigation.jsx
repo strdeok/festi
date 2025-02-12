@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { Bell, Glass, HomeIcon, Human } from "../../../../style/Icons";
+import { Bell, Glass, HomeIcon, Human } from "../style/Icons";
 
 export default function BottomNavigation() {
   const locate = useLocation();

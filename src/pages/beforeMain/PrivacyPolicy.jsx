@@ -114,7 +114,7 @@ export default function PrivacyPolicy() {
         </div>
       </div>
       <div className="mb-4">
-        <Button path={"/set-nickname"} title={"다음"} state={state} />
+        <Button path={"/introducing"} title={"다음"} state={state} />
       </div>
     </div>
   );

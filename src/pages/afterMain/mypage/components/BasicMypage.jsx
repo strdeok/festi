@@ -16,7 +16,6 @@ export default function BasicMypage() {
       <header className="w-full text-center py-4 font-bold text-lg">
         마이페이지
       </header>
-
       <main className="flex flex-col w-full font-semibold">
         <FirstSection />
         <DivideBar />
@@ -27,14 +26,15 @@ export default function BasicMypage() {
         <FourthSection
           agreement={agreement}
           setAgreement={setAgreement}
-          active={active}
           setActive={setActive}
         />
       </main>
-      {active ? (
+
+      {active && (
         <CheckAgreement setAgreement={setAgreement} setActive={setActive} />
-      ) : null}
-      <Outlet />
+      )}
+      
+      <Outlet /> {/* delete-acount */}
     </div>
   );
 }
