@@ -8,12 +8,12 @@ export default function AlertContent({
   alertTime,
   read,
 }) {
+  const navigate = useNavigate();
+
   const [alert, setAlert] = useState({
     icon: "",
     content: "",
   });
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     let newAlert = { icon: "", content: "" };
@@ -55,6 +55,7 @@ export default function AlertContent({
       }`}
     >
       {read ? <div className="size-2 rounded bg-[#FF0000] absolute" /> : null}
+
       <div className="flex flex-row items-center">
         <div className="size-8 mr-4 flex justify-center items-center">
           {alert.icon}

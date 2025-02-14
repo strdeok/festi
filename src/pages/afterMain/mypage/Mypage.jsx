@@ -5,12 +5,12 @@ import EditNickName from "./edit-nickname/EditNickName";
 import getLastPath from "../../../util/GetLastPath";
 
 export default function Mypage() {
-  const locationHook = useLocation();
+  const location = useLocation();
   const [currentLastUrl, setCurrentLastUrl] = useState(null);
 
   useEffect(() => {
     setCurrentLastUrl(getLastPath);
-  }, [locationHook]);
+  }, [location]);
 
   switch (currentLastUrl) {
     case "edit-nickname":

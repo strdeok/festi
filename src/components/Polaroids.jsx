@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import PlusIcon from "../../../../style/Icons";
+import PlusIcon from "../style/Icons";
 import ViewFullImage from "./ViewFullImage";
 import { useState } from "react";
 

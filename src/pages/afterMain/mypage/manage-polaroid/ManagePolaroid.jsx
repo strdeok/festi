@@ -1,11 +1,12 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { BackArrow } from "../../../../style/Icons";
-import Polaroids from "../../main/components/Polaroids";
-import ScrollButton from "../../main/components/ScrollButton";
+import Polaroids from "../../../../components/Polaroids";
+import ScrollButton from "../../../../components/ScrollButton";
 
 export default function ManagePolaroid() {
   const navigate = useNavigate();
+  const params = useParams();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -17,7 +18,7 @@ export default function ManagePolaroid() {
         <header className="flex flex-row font-bold text-lg justify-between items-center py-4">
           <div
             onClick={() => {
-              navigate("/mypage/id");
+              navigate(`/mypage/${params.id}`);
             }}
           >
             <BackArrow />

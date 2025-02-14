@@ -1,8 +1,8 @@
 export default function ThirdSection() {
   return (
-    <p className="my-6">
-      <div className="mb-6">1:1 문의하기</div>
-      <div>리뷰 남기기</div>
-    </p>
+    <div className="my-6 flex flex-col gap-6">
+      <p>1:1 문의하기</p>
+      <p>리뷰 남기기</p>
+    </div>
   );
 }
