@@ -40,9 +40,9 @@ export default function OnBoarding() {
 
       <div className="flex-grow" />
 
-      <div className="pb-5">
+      <div className="mb-5">
         <button
-          className="w-full rounded-full py-3 bg-yellow text-white"
+          className="w-full rounded-full py-3 bg-yellow text-white relative z-10"
           onClick={() => {
             if (step === 4) {
               navigate("/set-nickname");
@@ -52,7 +52,7 @@ export default function OnBoarding() {
             console.log(step);
           }}
         >
-          다음
+          {step === 4 ? "로그인" : "다음"}
         </button>
       </div>
     </div>
