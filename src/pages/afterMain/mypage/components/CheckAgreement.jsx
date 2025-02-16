@@ -15,7 +15,7 @@ export default function CheckAgreement({ setAgreement, setActive }) {
 
         <p className="mt-8">
           <button
-            className="w-[122px] h-11 rounded-lg border border-[#dfdfdf] text-darkgray mr-3"
+            className="w-[7rem] h-11 rounded-lg border border-[#dfdfdf] text-darkgray mr-3"
             onClick={() => {
               setActive(false);
               setAgreement(true);
@@ -25,7 +25,7 @@ export default function CheckAgreement({ setAgreement, setActive }) {
           </button>
 
           <button
-            className="w-[122px] h-11 rounded-lg bg-yellow text-white"
+            className="w-[7rem] h-11 rounded-lg bg-yellow text-white"
             onClick={() => {
               setActive(false);
               setAgreement(false);

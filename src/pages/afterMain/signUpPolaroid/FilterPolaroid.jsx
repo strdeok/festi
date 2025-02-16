@@ -57,7 +57,7 @@ export default function FilterPolaroid() {
             <BackArrow />
           </button>
         </div>
-        <p className="text-lg font-semibold mb-[24px]">AI필터 선택</p>
+        <p className="text-lg font-semibold mb-6">AI필터 선택</p>
         <div>
           <PolaroidFrame source={source} />
         </div>

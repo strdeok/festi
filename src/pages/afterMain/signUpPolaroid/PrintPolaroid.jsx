@@ -41,7 +41,7 @@ export default function PrintPolaroid() {
                         <VscChromeClose />
                     </button>
                 </div>
-                <p className="text-lg font-semibold mb-[24px]">
+                <p className="text-lg font-semibold mb-6">
                     출력 완료!
                 </p>
                 <div>

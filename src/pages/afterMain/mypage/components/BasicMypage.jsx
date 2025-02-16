@@ -16,7 +16,7 @@ export default function BasicMypage() {
       <header className="w-full text-center py-4 font-bold text-lg">
         마이페이지
       </header>
-      <main className="flex flex-col w-full font-semibold">
+      <main className="flex flex-col w-full font-semibold pb-20 ">
         <FirstSection />
         <DivideBar />
         <SecondSection />

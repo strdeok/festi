@@ -10,7 +10,7 @@ export default function DeleteAcount() {
         className="fixed w-full h-full left-0 top-0 z-10 bg-black bg-opacity-30 backdrop-blur-[1px]"
       />
 
-      <div className="z-20 bg-white p-6 rounded-2xl text-center ">
+      <div className="z-20 bg-white p-6 rounded-2xl text-center w-[19rem] h-[14.3125rem] ">
         <p className="mt-2 text-lg font-bold">회원탈퇴</p>
 
         <p className="mt-4 px-9 text-[#969696] text-sm font-medium">
@@ -20,7 +20,7 @@ export default function DeleteAcount() {
 
         <p className="mt-8">
           <button
-            className="w-[122px] h-11 rounded-lg border border-[#dfdfdf] text-darkgray mr-3"
+            className="w-[7rem] h-11 rounded-lg border border-[#dfdfdf] text-darkgray mr-3"
             onClick={() => {
               navigate("/mypage/id");
             }}
@@ -29,7 +29,7 @@ export default function DeleteAcount() {
           </button>
 
           <button
-            className="w-[122px] h-11 rounded-lg bg-[#FC5852] text-white"
+            className="w-[7rem] h-11 rounded-lg bg-[#FC5852] text-white"
             onClick={() => {
               navigate("/");
             }}
