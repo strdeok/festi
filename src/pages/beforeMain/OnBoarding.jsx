@@ -11,7 +11,7 @@ export default function OnBoarding() {
       className="flex flex-col w-full h-full overflow-hidden
      bg-[radial-gradient(50%_50%_at_50%_50%,rgba(252,175,22,0.05)_0%,rgba(253,253,253,0.05)_100%)]"
     >
-      <button
+      {/* <button
         className="py-[15px]"
         onClick={() => {
           if (step === 1) {
@@ -20,26 +20,39 @@ export default function OnBoarding() {
         }}
       >
         <BackArrow />
-      </button>
+      </button> */}
 
-      <div id="progress-bar" className="w-full h-1 bg-[#F0F0F0]">
-        <div className={`w-${step}/4 h-full bg-yellow`} />
+      <div
+        id="progress-dot"
+        className="mt-6 flex flex-row justify-center gap-1"
+      >
+        {[...Array(4)].map((_, index) => (
+          <div
+            key={index}
+            className={`size-2 ${
+              index === step - 1 ? "bg-yellow" : "bg-gray"
+            } rounded-full`}
+          />
+        ))}
       </div>
 
       <OnBoardingCarousel step={step} />
 
       <div className="flex-grow" />
 
-      <div className="pb-5">
+      <div className="mb-5">
         <button
-          className="w-full rounded-full py-3 bg-yellow text-white"
+          className="w-full rounded-full py-3 bg-yellow text-white relative z-10"
           onClick={() => {
             if (step === 4) {
               navigate("/set-nickname");
-            } else setStep((prev) => prev + 1);
+            } else {
+              setStep((prev) => prev + 1);
+            }
+            console.log(step);
           }}
         >
-          다음
+          {step === 4 ? "로그인" : "다음"}
         </button>
       </div>
     </div>

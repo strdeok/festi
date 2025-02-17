@@ -25,10 +25,10 @@ function App() {
     <Routes>
       <Route path="/" element={<GlobalLayout />}>
         {/* 메인 이전 */}
-        <Route index element={<Loading />} />
+        <Route index element={<OnBoarding />} />
+        <Route path="welcome" element={<Loading />} />
         <Route path="login" element={<Home />} />
         <Route path="check-policy" element={<PrivacyPolicy />} />
-        <Route path="introducing" element={<OnBoarding />} />
         <Route path="set-nickname" element={<SetNickName />} />
         {/* 메인 이후 */}
         <Route element={<MainLayout />}>

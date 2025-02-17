@@ -72,7 +72,7 @@ export default function SignUpPolaroid(props){
                     </button>
                     <div />
                 </div>
-                <div className="flex flex-col items-center mb-[56px] my-[124px]">
+                <div className="flex flex-col items-center mb-14 my-[7.75rem]">
                     <p className="text-xl mb-3 font-bold">폴라로이드 등록</p>
                     <p className="text-[#969696]">사진을 등록할 방식을 선택해주세요!</p>
                 </div>

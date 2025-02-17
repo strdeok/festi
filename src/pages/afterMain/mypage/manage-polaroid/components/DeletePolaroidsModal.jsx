@@ -4,12 +4,12 @@ export default function DeletePolaroidsModal({ image }) {
   const navigate = useNavigate();
   return (
     <div className="fixed top-0 left-0 bg-black bg-opacity-25 w-full h-full z-10 flex items-center justify-center">
-      <div className="fixed z-20 w-[304px] h-[412px] flex flex-col gap-4 items-center justify-center bg-white rounded-2xl">
+      <div className="fixed z-20 w-[19rem] h-[25.75rem] flex flex-col gap-4 items-center justify-center bg-white rounded-2xl">
         <p className="mt-8 font-bold text-lg">폴라로이드 삭제</p>
         <img
           src={image}
           alt={image}
-          className="w-[139px] h-[167px] object-fill"
+          className="w-[8.6878rem] h-[10.4375rem] object-fill"
         />
         <p className="px-14 text-center text-[#969696] text-sm">
           폴라로이드를 삭제할 경우 복구 및 다운로드가 불가능해집니다. 삭제

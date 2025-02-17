@@ -5,7 +5,7 @@ export default function UploadComplete() {
     return(
         <>
             <div className="flex flex-col h-full pt-4">
-                <div className="mt-[200px] flex flex-col items-center">
+                <div className="mt-[12.5rem] flex flex-col items-center">
                     <CompleteIcon />
                     <p className="text-lg font-semibold mb-4 mt-6">
                         업로드 완료!
