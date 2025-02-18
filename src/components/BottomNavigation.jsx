@@ -6,7 +6,7 @@ export default function BottomNavigation() {
   const navigate = useNavigate();
   const userId = "id"; // 임의 id
   return (
-    <div className="fixed -bottom-1 left-0 pt-5 w-screen h-20 flex flex-row bg-white drop-shadow-[0_-4px_6px_rgba(0,0,0,0.1)]">
+    <div className="fixed bottom-0 left-0 pt-5 w-screen h-20 flex flex-row bg-white drop-shadow-[0_-4px_6px_rgba(0,0,0,0.1)]">
       <div
         onClick={() => {
           navigate("/main");
