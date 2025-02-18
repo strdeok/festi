@@ -12,7 +12,12 @@ import AlertPage from "./pages/afterMain/alert/AlertPage.jsx";
 import SignUpPolaroid from "./pages/afterMain/signUpPolaroid/SignUpPolaroid";
 import FilterPolaroid from "./pages/afterMain/signUpPolaroid/FilterPolaroid";
 import PrintPolaroid from "./pages/afterMain/signUpPolaroid/PrintPolaroid";
-import UploadComplete from "./pages/afterMain/signUpPolaroid/UploadComplete.jsx";
+import UploadComplete from "./pages/afterMain/signUpPolaroid/UploadComplete";
+import Matching from "./pages/afterLogin/matching/Matching";
+import SignUpMatching from "./pages/afterLogin/matching/SignUpMatching";
+import SignUpMatchingComplete from "./pages/afterLogin/matching/SignUpMatchingComplete";
+import ListSignUp from "./pages/afterLogin/matching/ListSignUp";
+
 import Loading from "./pages/beforeMain/Loading.jsx";
 import EditNickName from "./pages/afterMain/mypage/edit-nickname/EditNickName.jsx";
 import MatchingResult from "./pages/afterMain/matchingResult/MatchingResult.jsx";
@@ -33,6 +38,8 @@ function App() {
         {/* 메인 이후 */}
         <Route element={<MainLayout />}>
           <Route path="main" element={<Main />} />
+            <Route path="matching" element={<Matching/>} />
+
           <Route path="alert" element={<AlertPage />} />
           <Route path="mypage/:id" element={<Mypage />}>
             <Route path="delete-acount" element={<DeleteAcount />} />
@@ -59,6 +66,11 @@ function App() {
           path="signup-polaroid/filter-polaroid/print-polaroid/upload-polaroid"
           element={<UploadComplete />}
         />
+
+          {/* 주점 매칭*/}
+          <Route path="signup-matching" element={<SignUpMatching />} />
+          <Route path="signup-matching/signup-complete" element={<SignUpMatchingComplete />} />
+          <Route path="main/matching/signup-list" element={<ListSignUp />} />
       </Route>
     </Routes>
   );

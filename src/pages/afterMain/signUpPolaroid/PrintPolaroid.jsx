@@ -10,7 +10,7 @@ export default function PrintPolaroid() {
     const state = true;
     const navigate = useNavigate();
     const location = useLocation();
-    const source = location.state.imageUrl;
+    const source = location.state;
 
     return (
         <>
@@ -53,7 +53,7 @@ export default function PrintPolaroid() {
                     <DownloadButton title={"다운로드"}/>
                 </div>
                 <div className="w-full mb-4">
-                    <Button title={"출력하기"} state={state} path={"upload-polaroid"}/>
+                    <Button title={"업로드"} state={state} path={"upload-polaroid"}/>
                 </div>
             </div>
         </>
