@@ -65,12 +65,12 @@ export function DisneyButton({ title, selected }) {
     <>
       {selected
       ?
-      <div className="w-[85px] h-[76px] flex flex-col justify-center items-center rounded-lg bg-white border-2 border-[#fcaf16]/25 relative">
+      <div className="w-[5.3125rem] h-[4.75rem] flex flex-col justify-center items-center rounded-lg bg-white border-2 border-[#fcaf16]/25 relative">
           <p className="text-sm font-semibold text-center text-[#fcaf16]">{title}</p>
           <p className="text-sm font-semibold text-center text-[#fcaf16]">AI</p>
       </div>
       :
-      <div className="w-[85px] h-[76px] flex flex-col justify-center items-center rounded-lg bg-white border border-[#f3f3f3] relative">
+      <div className="w-[5.3125rem] h-[4.75rem] flex flex-col justify-center items-center rounded-lg bg-white border border-[#f3f3f3] relative">
           <p className="text-sm font-semibold text-center text-[#969696]">{title}</p>
           <p className="text-sm font-semibold text-center text-[#969696]">AI</p>
       </div>

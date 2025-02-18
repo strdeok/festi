@@ -4,7 +4,7 @@ export function HomeIcon({ state }) {
   return (
     <svg
       width="21"
-      height="17"
+      height="18"
       viewBox="0 0 21 17"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -17,12 +17,12 @@ export function HomeIcon({ state }) {
   );
 }
 
-export function Polaroid({ state }) {
+export function Polaroid({ state, size }) {
   return (
     <svg
-      width="20"
-      height="18"
-      viewBox="0 0 20 18"
+      width={size ? size : "17"}
+      height={size ? size : "18"}
+      viewBox="0 0 17 18"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -34,11 +34,11 @@ export function Polaroid({ state }) {
   );
 }
 
-export function Glass({ state }) {
+export function Glass({ state, size }) {
   return (
     <svg
-      width="20"
-      height="18"
+      width={size ? size : "20"}
+      height={size ? size : "18"}
       viewBox="0 0 20 18"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -78,8 +78,8 @@ export function Human({ state }) {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M5.875 4C5.875 2.93913 6.29643 1.92172 7.04657 1.17157C7.79672 0.421427 8.81413 0 9.875 0C10.9359 0 11.9533 0.421427 12.7034 1.17157C13.4536 1.92172 13.875 2.93913 13.875 4C13.875 5.06087 13.4536 6.07828 12.7034 6.82843C11.9533 7.57857 10.9359 8 9.875 8C8.81413 8 7.79672 7.57857 7.04657 6.82843C6.29643 6.07828 5.875 5.06087 5.875 4ZM5.875 10C4.54892 10 3.27715 10.5268 2.33947 11.4645C1.40178 12.4021 0.875 13.6739 0.875 15C0.875 15.7956 1.19107 16.5587 1.75368 17.1213C2.31629 17.6839 3.07935 18 3.875 18H15.875C16.6706 18 17.4337 17.6839 17.9963 17.1213C18.5589 16.5587 18.875 15.7956 18.875 15C18.875 13.6739 18.3482 12.4021 17.4105 11.4645C16.4729 10.5268 15.2011 10 13.875 10H5.875Z"
         fill={state ? "#FCAF16" : "#C6C6C6"}
       />
@@ -87,7 +87,7 @@ export function Human({ state }) {
   );
 }
 
-export function SmallStar() {
+export function StarSm() {
   return (
     <svg
       width="36"
@@ -141,7 +141,49 @@ export function SmallStar() {
   );
 }
 
-export function BigStar() {
+export function StarMedium() {
+  return (
+    <svg
+      width="83"
+      height="104"
+      viewBox="0 0 83 104"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g opacity="0.15" filter="url(#filter0_f_490_10286)">
+        <path
+          d="M47 12L56.4532 41.1964L82 52L56.4532 62.8036L47 92L37.5468 62.8036L12 52L37.5468 41.1964L47 12Z"
+          fill="#FCAF16"
+        />
+      </g>
+      <defs>
+        <filter
+          id="filter0_f_490_10286"
+          x="0"
+          y="0"
+          width="94"
+          height="104"
+          filterUnits="userSpaceOnUse"
+          color-interpolation-filters="sRGB"
+        >
+          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feBlend
+            mode="normal"
+            in="SourceGraphic"
+            in2="BackgroundImageFix"
+            result="shape"
+          />
+          <feGaussianBlur
+            stdDeviation="6"
+            result="effect1_foregroundBlur_490_10286"
+          />
+        </filter>
+      </defs>
+    </svg>
+  );
+}
+
+export function Starlg() {
   return (
     <svg
       width="123"
@@ -190,6 +232,48 @@ export function BigStar() {
           <stop stop-color="#FCAF16" />
           <stop offset="1" stop-color="#FDFDFD" />
         </radialGradient>
+      </defs>
+    </svg>
+  );
+}
+
+export function StarXl() {
+  return (
+    <svg
+      width="164"
+      height="186"
+      viewBox="0 0 164 186"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g opacity="0.15" filter="url(#filter0_f_461_6456)">
+        <path
+          d="M82 12L100.906 71.1227L152 93L100.906 114.877L82 174L63.0936 114.877L12 93L63.0936 71.1227L82 12Z"
+          fill="#FCAF16"
+        />
+      </g>
+      <defs>
+        <filter
+          id="filter0_f_461_6456"
+          x="0"
+          y="0"
+          width="164"
+          height="186"
+          filterUnits="userSpaceOnUse"
+          color-interpolation-filters="sRGB"
+        >
+          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feBlend
+            mode="normal"
+            in="SourceGraphic"
+            in2="BackgroundImageFix"
+            result="shape"
+          />
+          <feGaussianBlur
+            stdDeviation="6"
+            result="effect1_foregroundBlur_461_6456"
+          />
+        </filter>
       </defs>
     </svg>
   );
@@ -333,66 +417,82 @@ export function SnowFlake({ size, color }) {
         stroke={color}
         stroke-width="2"
         stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M19.75 16H31"
         stroke={color}
         stroke-width="2"
         stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M16 1L16 12.25"
         stroke={color}
         stroke-width="2"
         stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M16 19.75L16 31"
         stroke={color}
         stroke-width="2"
         stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M23.9688 8.03125L18.6953 13.3047"
         stroke={color}
         stroke-width="2"
         stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M13.3047 18.8125L8.03126 24.0859"
         stroke={color}
         stroke-width="2"
         stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M23.9688 23.9688L18.6953 18.6953"
         stroke={color}
         stroke-width="2"
         stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M13.3047 13.1875L8.03126 7.91407"
         stroke={color}
         stroke-width="2"
         stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
     </svg>
   );
 }
 
-export function UpIcon() {
+export function UpIcon({width, height}) {
   return (
     <svg
-      width="40"
-      height="20"
+      width={width}
+      height={height}
       viewBox="0 0 40 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_472_9428)">
+      <g clipPath="url(#clip0_472_9428)">
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M20.0002 5.57156L8.21518 17.3566L5.85851 14.9999L18.8218 2.03656C19.1344 1.72411 19.5582 1.54858 20.0002 1.54858C20.4421 1.54858 20.866 1.72411 21.1785 2.03656L34.1418 14.9999L31.7852 17.3566L20.0002 5.57156Z"
           fill="#858585"
         />
@@ -411,19 +511,19 @@ export function UpIcon() {
   );
 }
 
-export function DownIcon() {
+export function DownIcon({width, height}) {
   return (
     <svg
-      width="40"
-      height="20"
+      width={width}
+      height={height}
       viewBox="0 0 40 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_472_9431)">
+      <g clipPath="url(#clip0_472_9431)">
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M19.9998 14.4284L31.7848 2.64344L34.1415 5.00011L21.1782 17.9634C20.8656 18.2759 20.4418 18.4514 19.9998 18.4514C19.5579 18.4514 19.134 18.2759 18.8215 17.9634L5.85815 5.00011L8.21482 2.64344L19.9998 14.4284Z"
           fill="#858585"
         />
@@ -462,32 +562,32 @@ export default function PlusIcon() {
 export function CameraIcon() {
   return (
     <div className="flex justify-start items-center flex-grow-0 flex-shrink-0 gap-2.5 px-10 pt-8 pb-10 rounded-2xl border border-[#f3f3f3]">
-    <div className="flex flex-col justify-start items-center flex-grow-0 flex-shrink-0 w-14 relative gap-2">
-      <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative gap-2.5 px-2.5 py-3">
-        <svg
-          width={36}
-          height={32}
-          viewBox="0 0 36 32"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="flex-grow-0 flex-shrink-0"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M3.6 3.55556H9L12.6 0H23.4L27 3.55556H32.4C33.3548 3.55556 34.2705 3.93016 34.9456 4.59695C35.6207 5.26375 36 6.16812 36 7.11111V28.4444C36 29.3874 35.6207 30.2918 34.9456 30.9586C34.2705 31.6254 33.3548 32 32.4 32H3.6C2.64522 32 1.72955 31.6254 1.05442 30.9586C0.379284 30.2918 0 29.3874 0 28.4444V7.11111C0 6.16812 0.379284 5.26375 1.05442 4.59695C1.72955 3.93016 2.64522 3.55556 3.6 3.55556ZM18 8.88889C15.6131 8.88889 13.3239 9.82539 11.636 11.4924C9.94821 13.1594 9 15.4203 9 17.7778C9 20.1353 9.94821 22.3962 11.636 24.0632C13.3239 25.7302 15.6131 26.6667 18 26.6667C20.3869 26.6667 22.6761 25.7302 24.364 24.0632C26.0518 22.3962 27 20.1353 27 17.7778C27 15.4203 26.0518 13.1594 24.364 11.4924C22.6761 9.82539 20.3869 8.88889 18 8.88889ZM18 12.4444C19.4322 12.4444 20.8057 13.0063 21.8184 14.0065C22.8311 15.0067 23.4 16.3633 23.4 17.7778C23.4 19.1923 22.8311 20.5488 21.8184 21.549C20.8057 22.5492 19.4322 23.1111 18 23.1111C16.5678 23.1111 15.1943 22.5492 14.1816 21.549C13.1689 20.5488 12.6 19.1923 12.6 17.7778C12.6 16.3633 13.1689 15.0067 14.1816 14.0065C15.1943 13.0063 16.5678 12.4444 18 12.4444Z"
-            fill="#C6C6C6"
-          />
-        </svg>
+      <div className="flex flex-col justify-start items-center flex-grow-0 flex-shrink-0 w-14 relative gap-2">
+        <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative gap-2.5 px-2.5 py-3">
+          <svg
+            width={36}
+            height={32}
+            viewBox="0 0 36 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="flex-grow-0 flex-shrink-0"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M3.6 3.55556H9L12.6 0H23.4L27 3.55556H32.4C33.3548 3.55556 34.2705 3.93016 34.9456 4.59695C35.6207 5.26375 36 6.16812 36 7.11111V28.4444C36 29.3874 35.6207 30.2918 34.9456 30.9586C34.2705 31.6254 33.3548 32 32.4 32H3.6C2.64522 32 1.72955 31.6254 1.05442 30.9586C0.379284 30.2918 0 29.3874 0 28.4444V7.11111C0 6.16812 0.379284 5.26375 1.05442 4.59695C1.72955 3.93016 2.64522 3.55556 3.6 3.55556ZM18 8.88889C15.6131 8.88889 13.3239 9.82539 11.636 11.4924C9.94821 13.1594 9 15.4203 9 17.7778C9 20.1353 9.94821 22.3962 11.636 24.0632C13.3239 25.7302 15.6131 26.6667 18 26.6667C20.3869 26.6667 22.6761 25.7302 24.364 24.0632C26.0518 22.3962 27 20.1353 27 17.7778C27 15.4203 26.0518 13.1594 24.364 11.4924C22.6761 9.82539 20.3869 8.88889 18 8.88889ZM18 12.4444C19.4322 12.4444 20.8057 13.0063 21.8184 14.0065C22.8311 15.0067 23.4 16.3633 23.4 17.7778C23.4 19.1923 22.8311 20.5488 21.8184 21.549C20.8057 22.5492 19.4322 23.1111 18 23.1111C16.5678 23.1111 15.1943 22.5492 14.1816 21.549C13.1689 20.5488 12.6 19.1923 12.6 17.7778C12.6 16.3633 13.1689 15.0067 14.1816 14.0065C15.1943 13.0063 16.5678 12.4444 18 12.4444Z"
+              fill="#C6C6C6"
+            />
+          </svg>
+        </div>
+        <p className="self-stretch flex-grow-0 flex-shrink-0 w-14 text-sm font-medium text-center text-[#969696]">
+          카메라
+        </p>
       </div>
-      <p className="self-stretch flex-grow-0 flex-shrink-0 w-14 text-sm font-medium text-center text-[#969696]">
-        카메라
-      </p>
     </div>
-  </div>
   );
 }
 
-export function ImageIcon(){
+export function ImageIcon() {
   return (
     <div className="flex flex-col justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2 px-10 pt-8 pb-10 rounded-2xl border border-[#f3f3f3]">
       <div className="flex justify-start items-center self-stretch flex-grow-0 flex-shrink-0 relative gap-2.5 px-3 py-2.5">
@@ -533,11 +633,11 @@ export function SelectedCameraIcon() {
             />
           </svg>
         </div>
-      <p className="self-stretch flex-grow-0 flex-shrink-0 w-14 text-sm font-medium text-center text-[#fcaf16]">
-        카메라
-      </p>
+        <p className="self-stretch flex-grow-0 flex-shrink-0 w-14 text-sm font-medium text-center text-[#fcaf16]">
+          카메라
+        </p>
+      </div>
     </div>
-  </div>
   );
 }
 
@@ -559,11 +659,11 @@ export function SelectedImageIcon() {
             fill="#FCAF16"
           />
         </svg>
+      </div>
+      <p className="self-stretch flex-grow-0 flex-shrink-0 w-14 text-sm font-medium text-center text-[#fcaf16]">
+        이미지
+      </p>
     </div>
-    <p className="self-stretch flex-grow-0 flex-shrink-0 w-14 text-sm font-medium text-center text-[#fcaf16]">
-      이미지
-    </p>
-  </div>
   );
 }
 
@@ -571,7 +671,7 @@ export function CompleteIcon() {
   return (
     <>
       <div className="flex justify-center items-center rounded-full w-16 h-16 bg-[#FFF7E8]">
-        <IoCheckmark fontWeight={900} size = "45" color = "#FCAF16"/>
+        <IoCheckmark fontWeight={900} size="45" color="#FCAF16" />
       </div>
     </>
   );
@@ -630,4 +730,54 @@ export function ImageCloseIcon({ onIconClick }) {
             <span className="text-[#ffffff] mb-1 text-xs">x</span>
       </div>
   );
+}
+
+export function RightArrow({ width, height }) {
+  return (
+    <svg
+      width={width}
+      height={height}
+      viewBox="0 0 12 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M8.65702 12.0001L1.58602 4.92911L3.00002 3.51511L10.778 11.2931C10.9655 11.4806 11.0708 11.7349 11.0708 12.0001C11.0708 12.2653 10.9655 12.5196 10.778 12.7071L3.00001 20.4851L1.58601 19.0711L8.65702 12.0001Z"
+        fill="#969696"
+      />
+    </svg>
+  );
+}
+export function CloseIcon() {
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 18 18"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M9.00006 10.8667L2.46673 17.4001C2.22229 17.6445 1.91118 17.7667 1.5334 17.7667C1.15562 17.7667 0.844509 17.6445 0.600065 17.4001C0.35562 17.1556 0.233398 16.8445 0.233398 16.4667C0.233398 16.089 0.35562 15.7778 0.600065 15.5334L7.1334 9.00006L0.600065 2.46673C0.35562 2.22229 0.233398 1.91118 0.233398 1.5334C0.233398 1.15562 0.35562 0.844509 0.600065 0.600065C0.844509 0.35562 1.15562 0.233398 1.5334 0.233398C1.91118 0.233398 2.22229 0.35562 2.46673 0.600065L9.00006 7.1334L15.5334 0.600065C15.7778 0.35562 16.089 0.233398 16.4667 0.233398C16.8445 0.233398 17.1556 0.35562 17.4001 0.600065C17.6445 0.844509 17.7667 1.15562 17.7667 1.5334C17.7667 1.91118 17.6445 2.22229 17.4001 2.46673L10.8667 9.00006L17.4001 15.5334C17.6445 15.7778 17.7667 16.089 17.7667 16.4667C17.7667 16.8445 17.6445 17.1556 17.4001 17.4001C17.1556 17.6445 16.8445 17.7667 16.4667 17.7667C16.089 17.7667 15.7778 17.6445 15.5334 17.4001L9.00006 10.8667Z"
+        fill="white"
+      />
+    </svg>
+  );
+}
+
+export function RedCloseIcon(){
+  return(<svg
+    width="10"
+    height="10"
+    viewBox="0 0 10 10"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M5.00003 5.93288L1.73337 9.19954C1.61114 9.32177 1.45559 9.38288 1.2667 9.38288C1.07781 9.38288 0.922255 9.32177 0.800032 9.19954C0.67781 9.07732 0.616699 8.92177 0.616699 8.73288C0.616699 8.54399 0.67781 8.38843 0.800032 8.26621L4.0667 4.99954L0.800032 1.73288C0.67781 1.61066 0.616699 1.4551 0.616699 1.26621C0.616699 1.07732 0.67781 0.921766 0.800032 0.799544C0.922255 0.677322 1.07781 0.616211 1.2667 0.616211C1.45559 0.616211 1.61114 0.677322 1.73337 0.799544L5.00003 4.06621L8.2667 0.799544C8.38892 0.677322 8.54448 0.616211 8.73337 0.616211C8.92226 0.616211 9.07781 0.677322 9.20003 0.799544C9.32225 0.921766 9.38337 1.07732 9.38337 1.26621C9.38337 1.4551 9.32225 1.61066 9.20003 1.73288L5.93337 4.99954L9.20003 8.26621C9.32225 8.38843 9.38337 8.54399 9.38337 8.73288C9.38337 8.92177 9.32225 9.07732 9.20003 9.19954C9.07781 9.32177 8.92226 9.38288 8.73337 9.38288C8.54448 9.38288 8.38892 9.32177 8.2667 9.19954L5.00003 5.93288Z"
+      fill="#FC5852"
+    />
+  </svg>)
 }
