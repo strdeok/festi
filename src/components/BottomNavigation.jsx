@@ -20,13 +20,13 @@ export default function BottomNavigation() {
 
       <div
         onClick={() => {
-          navigate("/미정");
+          navigate("/matching");
         }}
         className={`flex flex-col gap-2 items-center w-1/4 ${
-          locate.pathname === "/미정" ? "text-yellow" : ""
+          locate.pathname === "/matching" ? "text-yellow" : ""
         }`}
       >
-        <Glass />
+        <Glass state={locate.pathname === "/matching" ? "text-yellow" : ""} />
         주점팟 매칭
       </div>
       <div

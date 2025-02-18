@@ -13,10 +13,10 @@ import SignUpPolaroid from "./pages/afterMain/signUpPolaroid/SignUpPolaroid";
 import FilterPolaroid from "./pages/afterMain/signUpPolaroid/FilterPolaroid";
 import PrintPolaroid from "./pages/afterMain/signUpPolaroid/PrintPolaroid";
 import UploadComplete from "./pages/afterMain/signUpPolaroid/UploadComplete";
-import Matching from "./pages/afterLogin/matching/Matching";
-import SignUpMatching from "./pages/afterLogin/matching/SignUpMatching";
-import SignUpMatchingComplete from "./pages/afterLogin/matching/SignUpMatchingComplete";
-import ListSignUp from "./pages/afterLogin/matching/ListSignUp";
+import Matching from "./pages/afterMain/matching/Matching";
+import SignUpMatching from "./pages/afterMain/matching/SignUpMatching";
+import SignUpMatchingComplete from "./pages/afterMain/matching/SignUpMatchingComplete";
+import ListSignUp from "./pages/afterMain/matching/ListSignUp";
 
 import Loading from "./pages/beforeMain/Loading.jsx";
 import EditNickName from "./pages/afterMain/mypage/edit-nickname/EditNickName.jsx";
@@ -38,7 +38,7 @@ function App() {
         {/* 메인 이후 */}
         <Route element={<MainLayout />}>
           <Route path="main" element={<Main />} />
-            <Route path="matching" element={<Matching/>} />
+          <Route path="matching" element={<Matching />} />
 
           <Route path="alert" element={<AlertPage />} />
           <Route path="mypage/:id" element={<Mypage />}>
@@ -67,10 +67,13 @@ function App() {
           element={<UploadComplete />}
         />
 
-          {/* 주점 매칭*/}
-          <Route path="signup-matching" element={<SignUpMatching />} />
-          <Route path="signup-matching/signup-complete" element={<SignUpMatchingComplete />} />
-          <Route path="main/matching/signup-list" element={<ListSignUp />} />
+        {/* 주점 매칭*/}
+        <Route path="signup-matching" element={<SignUpMatching />} />
+        <Route
+          path="signup-matching/signup-complete"
+          element={<SignUpMatchingComplete />}
+        />
+        <Route path="main/matching/signup-list" element={<ListSignUp />} />
       </Route>
     </Routes>
   );
