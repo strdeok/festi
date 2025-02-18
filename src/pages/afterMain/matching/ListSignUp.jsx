@@ -98,7 +98,7 @@ export default function ListSignUp() {
       <div className="flex-grow" />
 
       <div className="mb-4">
-        <Button state={true} title={"확인"} path={"/main/matching"} />
+        <Button state={true} title={"확인"} path={"/matching"} />
       </div>
     </div>
   );

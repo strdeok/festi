@@ -8,7 +8,7 @@ export default function Matching() {
     const navigate = useNavigate();
     return(
         <div>
-            <div className="flex flex-col">
+            <div className="flex flex-col z-0">
                 <div className="pt-4 pb-4 mb-5">
                     <FreeTitle size={"3xl"} />
                 </div>
