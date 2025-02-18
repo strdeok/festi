@@ -10,7 +10,7 @@ export default function GlobalLayout() {
       <div
         className={`
      px-[20px] 
-     max-w-[640px]      
+     max-w-[400px]      
      h-full
     ${
       location.pathname == "/main"

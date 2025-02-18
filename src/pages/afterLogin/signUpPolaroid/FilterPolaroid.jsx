@@ -7,7 +7,7 @@ import Button, { DisneyButton } from "../../../components/Button";
 export default function FilterPolaroid() {
     const navigate = useNavigate();
     const location = useLocation();
-    const source = location.state.imageUrl;
+    const source = location.state;
 
     const [selectedOne, setSelectedOne] = useState(false);
     const [selectedTwo, setSelectedTwo] = useState(false);

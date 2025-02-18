@@ -17,6 +17,10 @@ import FilterPolaroid from "./pages/afterLogin/signUpPolaroid/FilterPolaroid";
 import PrintPolaroid from "./pages/afterLogin/signUpPolaroid/PrintPolaroid";
 import UploadComplete from "./pages/afterLogin/signUpPolaroid/UploadComplete";
 import Matching from "./pages/afterLogin/matching/Matching";
+import SignUpMatching from "./pages/afterLogin/matching/SignUpMatching";
+import SignUpMatchingComplete from "./pages/afterLogin/matching/SignUpMatchingComplete";
+import ListSignUp from "./pages/afterLogin/matching/ListSignUp";
+
 
 function App() {
   return (
@@ -30,6 +34,7 @@ function App() {
           <Route path="main" element={<MainLayout />}>
             <Route index element={<Main />} />
             <Route path="matching" element={<Matching/>} />
+
             <Route path="alert" element={<AlertPage />} />
             <Route path="mypage/:id" element={<Mypage />}></Route>
             <Route path="edit-profile" element={<EditProfile />} />
@@ -43,6 +48,11 @@ function App() {
           <Route path="signup-polaroid/filter-polaroid" element={<FilterPolaroid />} />
           <Route path="signup-polaroid/filter-polaroid/print-polaroid" element={<PrintPolaroid />} />
           <Route path="signup-polaroid/filter-polaroid/print-polaroid/upload-polaroid" element={<UploadComplete/>} />
+
+          {/* 주점 매칭*/}
+          <Route path="signup-matching" element={<SignUpMatching />} />
+          <Route path="signup-matching/signup-complete" element={<SignUpMatchingComplete />} />
+          <Route path="main/matching/signup-list" element={<ListSignUp />} />
         </Route>
       </Routes>
   );

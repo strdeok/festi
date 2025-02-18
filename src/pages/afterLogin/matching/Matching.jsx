@@ -1,9 +1,11 @@
 import { StarIcon } from "../../../style/Icons";
 import { FreeTitle } from "../../../components/Title";
 import { ForwardArrow } from "../../../style/Icons";
+import { useNavigate } from"react-router-dom";
 
 
 export default function Matching() {
+    const navigate = useNavigate();
     return(
         <div>
             <div className="flex flex-col">
@@ -25,7 +27,11 @@ export default function Matching() {
                 </div>
                 <div className = "flex flex-col mt-[150px] z-10">
                     <div className="w-full flex flex-col justify-start items-start gap-1 p-5 bg-white mb-4 rounded-xl"
-                        style={{ boxShadow: "4px 4px 16px 8px rgba(210,210,210,0.25)" }}>
+                        style={{ boxShadow: "4px 4px 16px 8px rgba(210,210,210,0.25)" }}
+                        onClick={() => {
+                            navigate("/signup-matching");
+                        }}
+                        >
                         <div className="w-full flex flex-row justify-between">
                             <p className="font-bold text-[#FCAF16]">매칭 등록</p>
                             <button
@@ -34,9 +40,6 @@ export default function Matching() {
                                 text-2xl
                                 relative
                                 "
-                                onClick={() => {
-                                    navigate(-1);
-                                }}
                             >
                                 <ForwardArrow />
                             </button>
@@ -54,7 +57,7 @@ export default function Matching() {
                                 relative
                                 "
                                 onClick={() => {
-                                    navigate(-1);
+                                    navigate("/main/matching/signup-list");
                                 }}
                             >
                                 <ForwardArrow />

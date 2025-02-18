@@ -10,7 +10,7 @@ export default function PrintPolaroid() {
     const state = true;
     const navigate = useNavigate();
     const location = useLocation();
-    const source = location.state.imageUrl;
+    const source = location.state;
 
     return (
         <>
