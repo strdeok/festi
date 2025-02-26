@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 import "./index.css";
-import Home from "./pages/beforeMain/Home";
 import SetNickName from "./pages/beforeMain/SetNickName";
 import PrivacyPolicy from "./pages/beforeMain/PrivacyPolicy";
 import Main from "./pages/afterMain/main/Main";
@@ -12,13 +11,17 @@ import AlertPage from "./pages/afterMain/alert/AlertPage.jsx";
 import SignUpPolaroid from "./pages/afterMain/signUpPolaroid/SignUpPolaroid";
 import FilterPolaroid from "./pages/afterMain/signUpPolaroid/FilterPolaroid";
 import PrintPolaroid from "./pages/afterMain/signUpPolaroid/PrintPolaroid";
-import UploadComplete from "./pages/afterMain/signUpPolaroid/UploadComplete.jsx";
-import Loading from "./pages/beforeMain/Loading.jsx";
+import UploadComplete from "./pages/afterMain/signUpPolaroid/UploadComplete";
+import Matching from "./pages/afterMain/matching/Matching";
+import SignUpMatching from "./pages/afterMain/matching/SignUpMatching";
+import SignUpMatchingComplete from "./pages/afterMain/matching/SignUpMatchingComplete";
+import ListSignUp from "./pages/afterMain/matching/ListSignUp";
 import EditNickName from "./pages/afterMain/mypage/edit-nickname/EditNickName.jsx";
 import MatchingResult from "./pages/afterMain/matchingResult/MatchingResult.jsx";
 import DeleteAcount from "./pages/afterMain/mypage/DeleteAcount.jsx";
 import DeletePolaroidsModal from "./pages/afterMain/mypage/manage-polaroid/components/DeletePolaroidsModal.jsx";
 import OnBoarding from "./pages/beforeMain/OnBoarding.jsx";
+import Login from "./pages/beforeMain/Login.jsx";
 
 function App() {
   return (
@@ -26,8 +29,7 @@ function App() {
       <Route path="/" element={<GlobalLayout />}>
         {/* 메인 이전 */}
         <Route index element={<OnBoarding />} />
-        <Route path="welcome" element={<Loading />} />
-        <Route path="login" element={<Home />} />
+        <Route path="login" element={<Login />} />
         <Route path="check-policy" element={<PrivacyPolicy />} />
         <Route path="set-nickname" element={<SetNickName />} />
         {/* 메인 이후 */}
