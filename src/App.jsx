@@ -35,6 +35,8 @@ function App() {
         {/* 메인 이후 */}
         <Route element={<MainLayout />}>
           <Route path="main" element={<Main />} />
+          <Route path="matching" element={<Matching />} />
+
           <Route path="alert" element={<AlertPage />} />
           <Route path="mypage/:id" element={<Mypage />}>
             <Route path="delete-acount" element={<DeleteAcount />} />
@@ -61,6 +63,14 @@ function App() {
           path="signup-polaroid/filter-polaroid/print-polaroid/upload-polaroid"
           element={<UploadComplete />}
         />
+
+        {/* 주점 매칭*/}
+        <Route path="signup-matching" element={<SignUpMatching />} />
+        <Route
+          path="signup-matching/signup-complete"
+          element={<SignUpMatchingComplete />}
+        />
+        <Route path="main/matching/signup-list" element={<ListSignUp />} />
       </Route>
     </Routes>
   );

@@ -49,7 +49,7 @@ export default function SignUpPolaroid(props){
 
     useEffect(() => {
         if (source !== ""){
-            navigate('filter-polaroid', { state : { imageUrl: source}})
+            navigate('filter-polaroid', { state: source })
         }
     }, [source])
 

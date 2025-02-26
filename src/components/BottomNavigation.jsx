@@ -6,13 +6,14 @@ export default function BottomNavigation() {
   const navigate = useNavigate();
   const userId = "id"; // 임의 id
   return (
-    <div className="fixed bottom-0 left-0 pt-5 w-screen h-20 flex flex-row bg-white drop-shadow-[0_-4px_6px_rgba(0,0,0,0.1)]">
+    <div className="text-sm fixed -bottom-1 left-0 pt-5 w-screen h-20 flex flex-row bg-white drop-shadow-[0_-4px_6px_rgba(0,0,0,0.1)] z-10">
+
       <div
         onClick={() => {
           navigate("/main");
         }}
-        className={`flex flex-col gap-2 items-center w-1/4 ${
-          locate.pathname === "/main" ? "text-yellow" : ""
+        className={`text-sm flex flex-col gap-2 items-center w-1/4 ${
+          locate.pathname === "/main" ? "text-yellow" : "text-[#969696]"
         }`}
       >
         <HomeIcon state={locate.pathname === "/main" ? true : false} />홈
@@ -20,21 +21,21 @@ export default function BottomNavigation() {
 
       <div
         onClick={() => {
-          navigate("/미정");
+          navigate("/matching");
         }}
-        className={`flex flex-col gap-2 items-center w-1/4 ${
-          locate.pathname === "/미정" ? "text-yellow" : ""
+        className={`text-sm flex flex-col gap-2 items-center w-1/4 ${
+          locate.pathname === "/matching" ? "text-yellow" : "text-[#969696]"
         }`}
       >
-        <Glass />
+        <Glass state={locate.pathname === "/matching" ? "text-yellow" : ""} />
         주점팟 매칭
       </div>
       <div
         onClick={() => {
           navigate("alert");
         }}
-        className={`flex flex-col gap-2 items-center w-1/4 ${
-          locate.pathname === "/alert" ? "text-yellow" : ""
+        className={`text-sm flex flex-col gap-2 items-center w-1/4 ${
+          locate.pathname === "/alert" ? "text-yellow" : "text-[#969696]"
         }`}
       >
         <Bell state={locate.pathname === "/alert" ? true : false} />
@@ -44,8 +45,8 @@ export default function BottomNavigation() {
         onClick={() => {
           navigate(`mypage/${userId}`);
         }}
-        className={`flex flex-col gap-2 items-center w-1/4 ${
-          locate.pathname === `/mypage/${userId}` ? "text-yellow" : ""
+        className={`text-sm flex flex-col gap-2 items-center w-1/4 ${
+          locate.pathname === `/mypage/${userId}` ? "text-yellow" : "text-[#969696]"
         }`}
       >
         <Human state={locate.pathname == `/mypage/${userId}`} />
