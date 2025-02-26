@@ -1,9 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "tailwindcss";
-import dotenv from "dotenv";
-
-dotenv.config();
 
 export default defineConfig({
   plugins: [react()],
@@ -14,10 +11,10 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      "/api": {
-        target: process.env.VITE_API_URL,
-        changeOrigin: true,
-        secure: false,
+      "/v1": {
+        target: "http://localhost:8080",
+        changeOrigin: true, // CORS 문제 해결을 위한 설정
+        rewrite: (path) => path.replace(/^\/api/, ""), // `/api`를 제거해서 실제 엔드포인트로 보냄
       },
     },
   },
