@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { useNavigate } from"react-router-dom";
+import { useNavigate, useLocation } from"react-router-dom";
 import { BackArrow, SmallCloseIcon, MatchingCamera, ImageCloseIcon } from "../../../style/Icons";
 import { MatchingButton } from "../../../components/Button";
 import { PlusInput } from "../../../components/Input";
@@ -16,10 +16,12 @@ export default function SignUpMatching() {
     const drinkAmount = ["1병", "2병", "3병"];
     const mood = ["도란도란", "시끌벅적", "짧고굵게", "밤새도록"];
 
+    const location = useLocation();
+    const matchingData = location.state;
+
     const [buttonState, setButtonState] = useState(false);
 
     const [source, setSource] = useState("");
-    // const [isSelectedSource, setIsSelectedSource] = useState(false);
     const handleCapture = (target) => {
         if (target.files) {
             if (target.files.length !== 0) {
@@ -29,7 +31,6 @@ export default function SignUpMatching() {
                 target.value = "";
             }
         }
-
     };
 
     const openCamera = () => {
@@ -43,15 +44,6 @@ export default function SignUpMatching() {
             setSource("");
         }
     }
-
-    // useEffect(() => {
-    //     if (source !== ""){
-    //         setIsSelectedSource(true);
-    //     }
-    //     else{
-    //         setIsSelectedSource(false);
-    //     }
-    // }, [source])
 
     // 성별 선택 정보를 저장하는 state
     const [selectedGender, setSelectedGender] = useState({
@@ -412,8 +404,8 @@ export default function SignUpMatching() {
                         }}
                     />
                     {source ? 
-                    <div className="w-20 h-20 rounded-xl">
-                        <img src={source} className="w-20 h-20 object-fill rounded-xl" />
+                    <div className="w-[80px] h-[80px] rounded-xl">
+                        <img src={source} className="w-[80px] h-[80px] object-fill rounded-xl" />
                         <ImageCloseIcon onIconClick={deleteImage}/>
                     </div>
                     :null}

@@ -1,4 +1,5 @@
 import { IoCheckmark } from "react-icons/io5";
+import { CgMoreVerticalAlt } from "react-icons/cg";
 
 export function HomeIcon({ state }) {
   return (
@@ -780,4 +781,12 @@ export function RedCloseIcon(){
       fill="#FC5852"
     />
   </svg>)
+}
+
+export function MenuIcon({ onIconClick }) {
+  return(
+    <div onClick={() => onIconClick()}>
+      <CgMoreVerticalAlt size="20"/>
+    </div>
+  );
 }

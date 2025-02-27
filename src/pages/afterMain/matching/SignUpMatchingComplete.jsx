@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import Button from "../../../components/Button";
 import SignUpComplete from "./components/SignUpComplete";
 
+
 export default function SignUpMatchingComplete() {
   const location = useLocation();
 
