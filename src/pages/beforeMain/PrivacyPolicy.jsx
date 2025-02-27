@@ -1,10 +1,14 @@
 import Button from "../../components/Button";
 import { useEffect, useState } from "react";
 import { IoMdCheckmark } from "react-icons/io";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { BackArrow, FilledCheckBox } from "../../style/Icons";
+import SaveAuthCode from "../../util/SaveAuthCode";
 
 export default function PrivacyPolicy() {
+  const navigate = useNavigate();
+  const path = useLocation().search;
+
   const [state, setState] = useState(false);
   const [admit, setAdmit] = useState({
     first: false,
@@ -37,7 +41,11 @@ export default function PrivacyPolicy() {
     } else setState(false);
   }, [admit]);
 
-  const navigate = useNavigate();
+  useEffect(() => {
+    SaveAuthCode(path);
+  }, []);
+
+  
 
   return (
     <div

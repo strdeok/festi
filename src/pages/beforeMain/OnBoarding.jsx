@@ -45,7 +45,8 @@ export default function OnBoarding() {
           className="w-full rounded-full py-3 bg-yellow text-white relative z-10"
           onClick={() => {
             if (step === 4) {
-              navigate("/welcome");
+              navigate("/login");
+
             } else {
               setStep((prev) => prev + 1);
             }
