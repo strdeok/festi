@@ -22,7 +22,6 @@ import DeleteAcount from "./pages/afterMain/mypage/DeleteAcount.jsx";
 import DeletePolaroidsModal from "./pages/afterMain/mypage/manage-polaroid/components/DeletePolaroidsModal.jsx";
 import OnBoarding from "./pages/beforeMain/OnBoarding.jsx";
 import Login from "./pages/beforeMain/Login.jsx";
-import Loading from "./components/Loading.jsx";
 import SendAuth from "./pages/beforeMain/SendAuth.jsx";
 
 function App() {
