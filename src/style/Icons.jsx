@@ -37,6 +37,23 @@ export function Polaroid({ state, size }) {
 export function Glass({ state, size }) {
   return (
     <svg
+      width={size ? size : "20"}
+      height={size ? size : "18"}
+      viewBox="0 0 20 18"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M16.163 1.639C16.557 1.094 16.625 0 16.625 0H0.625C0.625 0 0.693 1.094 1.087 1.639L7.625 10V16H5.625C3.625 16 3.625 18 3.625 18H13.625C13.625 18 13.625 16 11.625 16H9.625V10L16.163 1.639ZM8.025 5C8.025 4.57565 8.19357 4.16869 8.49363 3.86863C8.79369 3.56857 9.20065 3.4 9.625 3.4C10.0493 3.4 10.4563 3.56857 10.7564 3.86863C11.0564 4.16869 11.225 4.57565 11.225 5C11.225 5.42435 11.0564 5.83131 10.7564 6.13137C10.4563 6.43143 10.0493 6.6 9.625 6.6C9.20065 6.6 8.79369 6.43143 8.49363 6.13137C8.19357 5.83131 8.025 5.42435 8.025 5Z"
+        fill={state ? "#FCAF16" : "#C6C6C6"}
+      />
+    </svg>
+  );
+}
+
+export function Glass_2({ state, size }) {
+  return (
+    <svg
       width={size ? size : "17"}
       height={size ? size : "18"}
       viewBox="0 0 17 18"
@@ -54,9 +71,9 @@ export function Glass({ state, size }) {
 export function Human({ state }) {
   return (
     <svg
-      width="19"
+      width="20"
       height="18"
-      viewBox="0 0 19 18"
+      viewBox="0 0 20 18"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -327,6 +344,25 @@ export function BackArrow() {
   );
 }
 
+export function ForwardArrow() {
+  return(
+    <svg 
+      width="24" 
+      height="24" 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path 
+      fill-rule="evenodd" c
+      lip-rule="evenodd" 
+      d="M14.657 12L7.58602 4.92899L9.00002 3.51498L16.778 11.293C16.9655 11.4805 17.0708 11.7348 17.0708 12C17.0708 12.2652 16.9655 12.5195 16.778 12.707L9.00001 20.485L7.58601 19.071L14.657 12Z" 
+      fill="#1D1D1D"/>
+    </svg>
+
+  );
+}
+
 export function FilledCheckBox({ state }) {
   return (
     <svg
@@ -353,9 +389,9 @@ export function FilledCheckBox({ state }) {
 export function Bell({ state }) {
   return (
     <svg
-      width="19"
+      width="20"
       height="18"
-      viewBox="0 0 19 21"
+      viewBox="0 0 20 18"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -641,58 +677,58 @@ export function CompleteIcon() {
   );
 }
 
-export function StartIcon() {
+export function StarIcon({ size }) {
+  const width = size.width
+  const height = size.height
   return (
-    <svg
-      width={120}
-      height={150}
-      viewBox="0 0 120 150"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      preserveAspectRatio="none"
-    >
+    <svg width={width} height={height} viewBox="0 0 120 150" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g filter="url(#filter0_f_524_3861)">
-        <path
-          d="M64 4L80.2054 55.8236L124 75L80.2054 94.1764L64 146L47.7946 94.1764L4 75L47.7946 55.8236L64 4Z"
-          fill="url(#paint0_diamond_524_3861)"
-          fill-opacity="0.3"
-        />
+      <path d="M64 4L80.2054 55.8236L124 75L80.2054 94.1764L64 146L47.7946 94.1764L4 75L47.7946 55.8236L64 4Z" fill="url(#paint0_diamond_524_3861)" fill-opacity="0.3"/>
       </g>
       <defs>
-        <filter
-          id="filter0_f_524_3861"
-          x={0}
-          y={0}
-          width={128}
-          height={150}
-          filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
-        >
-          <feflood flood-opacity={0} result="BackgroundImageFix" />
-          <feblend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <fegaussianblur
-            stdDeviation={2}
-            result="effect1_foregroundBlur_524_3861"
-          />
-        </filter>
-        <radialgradient
-          id="paint0_diamond_524_3861"
-          cx={0}
-          cy={0}
-          r={1}
-          gradientUnits="userSpaceOnUse"
-          gradientTransform="translate(64 75) rotate(90) scale(71 60)"
-        >
-          <stop stop-color="#FCAF16" />
-          <stop offset={1} stop-color="#FDFDFD" />
-        </radialgradient>
+      <filter id="filter0_f_524_3861" x="0" y="0" width="128" height="150" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur stdDeviation="2" result="effect1_foregroundBlur_524_3861"/>
+      </filter>
+      <radialGradient id="paint0_diamond_524_3861" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(64 75) rotate(90) scale(71 60)">
+      <stop stop-color="#FCAF16"/>
+      <stop offset="1" stop-color="#FDFDFD"/>
+      </radialGradient>
       </defs>
     </svg>
+  );
+}
+
+export function SmallCloseIcon({ onClickChange, index }) {
+  return (
+    <>
+      <div className="flex items-center justify-center w-6 h-6 rounded-full bg-[#DFDFDF] absolute right-3"
+        onClick={() => onClickChange(index)}>
+            <span className="text-[#ffffff] mb-1 text-xl font-bold">x</span>
+      </div>
+    </>
+  );
+}
+
+export function MatchingCamera({ onIconClick }) {
+  return (
+    <div className="mr-2"
+      onClick={() => onIconClick()}>
+      <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="80" height="80" rx="12" fill="#F8F8F8"/>
+        <path d="M31.7714 32.8892H34.8572L36.9143 30.8574H43.0857L45.1429 32.8892H48.2286C48.7742 32.8892 49.2974 33.1032 49.6832 33.4843C50.069 33.8653 50.2857 34.3821 50.2857 34.9209V47.1114C50.2857 47.6502 50.069 48.167 49.6832 48.5481C49.2974 48.9291 48.7742 49.1431 48.2286 49.1431H31.7714C31.2258 49.1431 30.7026 48.9291 30.3168 48.5481C29.931 48.167 29.7143 47.6502 29.7143 47.1114V34.9209C29.7143 34.3821 29.931 33.8653 30.3168 33.4843C30.7026 33.1032 31.2258 32.8892 31.7714 32.8892ZM40 35.9368C38.636 35.9368 37.3279 36.4719 36.3635 37.4245C35.399 38.3771 34.8572 39.669 34.8572 41.0162C34.8572 42.3633 35.399 43.6552 36.3635 44.6078C37.3279 45.5604 38.636 46.0955 40 46.0955C41.364 46.0955 42.6721 45.5604 43.6366 44.6078C44.601 43.6552 45.1429 42.3633 45.1429 41.0162C45.1429 39.669 44.601 38.3771 43.6366 37.4245C42.6721 36.4719 41.364 35.9368 40 35.9368ZM40 37.9685C40.8184 37.9685 41.6033 38.2896 42.1819 38.8612C42.7606 39.4327 43.0857 40.2079 43.0857 41.0162C43.0857 41.8244 42.7606 42.5996 42.1819 43.1711C41.6033 43.7427 40.8184 44.0638 40 44.0638C39.1816 44.0638 38.3968 43.7427 37.8181 43.1711C37.2394 42.5996 36.9143 41.8244 36.9143 41.0162C36.9143 40.2079 37.2394 39.4327 37.8181 38.8612C38.3968 38.2896 39.1816 37.9685 40 37.9685Z" fill="#C6C6C6"/>
+      </svg>
+    </div>
+  );
+}
+
+export function ImageCloseIcon({ onIconClick }) {
+  return(
+    <div className="flex items-center justify-center w-4 h-4 rounded-full bg-[#575757] absolute left-[157px] top-[-7px]"
+        onClick={() => onIconClick()}>
+            <span className="text-[#ffffff] mb-1 text-xs">x</span>
+      </div>
   );
 }
 

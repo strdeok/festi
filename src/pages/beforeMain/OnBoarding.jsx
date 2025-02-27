@@ -46,6 +46,7 @@ export default function OnBoarding() {
           onClick={() => {
             if (step === 4) {
               navigate("/login");
+
             } else {
               setStep((prev) => prev + 1);
             }
