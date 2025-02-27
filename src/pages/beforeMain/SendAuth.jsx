@@ -11,6 +11,7 @@ export default function SendAuth() {
 
   const sendLogin = async () => {
     await axios
+
       .post(
         "/v1/api/auth/login",
         {
@@ -31,6 +32,7 @@ export default function SendAuth() {
       })
       .catch((err) => {
         console.log(err);
+
       });
   };
 
@@ -38,4 +40,5 @@ export default function SendAuth() {
     sendLogin();
   }, []);
   return <Loading />;
+
 }
