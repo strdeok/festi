@@ -22,6 +22,7 @@ import DeleteAcount from "./pages/afterMain/mypage/DeleteAcount.jsx";
 import DeletePolaroidsModal from "./pages/afterMain/mypage/manage-polaroid/components/DeletePolaroidsModal.jsx";
 import OnBoarding from "./pages/beforeMain/OnBoarding.jsx";
 import Login from "./pages/beforeMain/Login.jsx";
+import SendAuth from "./pages/beforeMain/SendAuth.jsx";
 
 function App() {
   return (
@@ -30,7 +31,9 @@ function App() {
         {/* 메인 이전 */}
         <Route index element={<OnBoarding />} />
         <Route path="login" element={<Login />} />
-        <Route path="check-policy" element={<PrivacyPolicy />} />
+        <Route path="check-policy" element={<SendAuth />} /> {/* 임시 url */}
+        <Route path="loading" element={<PrivacyPolicy />} />{" "}
+        {/* 임시 url */}
         <Route path="set-nickname" element={<SetNickName />} />
         {/* 메인 이후 */}
         <Route element={<MainLayout />}>

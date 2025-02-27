@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { BackArrow, FilledCheckBox } from "../../style/Icons";
 
 export default function PrivacyPolicy() {
+  const navigate = useNavigate();
+
   const [state, setState] = useState(false);
   const [admit, setAdmit] = useState({
     first: false,
@@ -37,8 +39,6 @@ export default function PrivacyPolicy() {
     } else setState(false);
   }, [admit]);
 
-  const navigate = useNavigate();
-
   return (
     <div
       className="
@@ -60,7 +60,7 @@ export default function PrivacyPolicy() {
           mb-10
           "
           onClick={() => {
-            navigate(-1);
+            navigate('/');
           }}
         >
           <BackArrow />

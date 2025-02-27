@@ -1,8 +1,30 @@
+import { useEffect } from "react";
 import AlertContent from "./Components/AlertContent";
 import dayjs from "dayjs";
+import axios from "axios";
 
 export default function AlertPage() {
   const now = dayjs().format("HH:mm");
+  const JWT_TOKEN = localStorage.getItem("jwtToken");
+
+  const getAlert = async () => {
+    await axios
+      .get("/v1/api/alarm/search", {
+        headers: {
+          Authorization: `Bearer ${JWT_TOKEN}`,
+        },
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    getAlert();
+  }, []);
 
   return (
     <div className="flex flex-col items-center">
