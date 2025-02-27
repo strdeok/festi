@@ -1,5 +1,6 @@
-import axios from "axios";
 
 export default function SaveAuthCode(authCode) {
-  localStorage.setItem("authCode", authCode);
+  localStorage.setItem("jwtToken", authCode.data.jwtToken);
+  localStorage.setItem("newUser", authCode.data.newUser);
+
 }

@@ -1,12 +1,17 @@
 import axios from "axios";
 import { useEffect } from "react";
-import PrivacyPolicy from "./PrivacyPolicy";
+import { useLocation, useNavigate } from "react-router-dom";
+import Loading from "../../components/Loading";
+import SaveAuthCode from "../../util/SaveAuthCode";
 
 export default function SendAuth() {
-  const auth = localStorage.getItem("authCode");
+  const path = useLocation().search;
+  const auth = path.split("=")[1];
+  const navigate = useNavigate();
 
-  const sendLogin = () => {
-    axios
+  const sendLogin = async () => {
+    await axios
+
       .post(
         "/v1/api/auth/login",
         {
@@ -16,15 +21,24 @@ export default function SendAuth() {
       )
       .then((res) => {
         console.log(res);
-        return <div>성공</div>;
+        SaveAuthCode(res);
+        navigate("/loading");
+        // if (res.data.newUser) {
+        //   SaveAuthCode(res);
+        //   navigate("/loading");
+        // } else {
+        //   navigate("/main");
+        // }
       })
       .catch((err) => {
         console.log(err);
-        return <div>실패</div>;
+
       });
   };
 
   useEffect(() => {
     sendLogin();
   }, []);
+  return <Loading />;
+
 }

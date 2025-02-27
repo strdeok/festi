@@ -33,7 +33,9 @@ function App() {
         <Route index element={<OnBoarding />} />
         <Route path="login" element={<Login />} />
         <Route path="check-policy" element={<SendAuth />} /> {/* 임시 url */}
-        <Route path="waiting-login" element={<PrivacyPolicy />} />{" "}
+
+        <Route path="loading" element={<PrivacyPolicy />} />{" "}
+
         {/* 임시 url */}
         <Route path="set-nickname" element={<SetNickName />} />
         {/* 메인 이후 */}

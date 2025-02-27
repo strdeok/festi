@@ -13,8 +13,10 @@ export default defineConfig({
     proxy: {
       "/v1": {
         target: "http://localhost:8080",
-        changeOrigin: true, // CORS 문제 해결을 위한 설정
-        rewrite: (path) => path.replace(/^\/api/, ""), // `/api`를 제거해서 실제 엔드포인트로 보냄
+        secure: false,
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/v1/, ""),
+
       },
     },
   },

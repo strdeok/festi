@@ -1,13 +1,13 @@
-import Button from "../../components/Button";
 import Input from "./components/Input";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BackArrow, RedCloseIcon } from "../../style/Icons";
+import { checkNickname } from "../../util/CheckNickName";
 
 export default function SetNickName() {
   const [state, setState] = useState(false);
   const [nickname, setNickname] = useState("");
-  const [exist, setExist] = useState(true); // 중복존재 = true, 중복없음 = false
+  const [exist, setExist] = useState(false); // 중복존재 = true, 중복없음 = false
 
   const navigate = useNavigate();
 
@@ -19,7 +19,7 @@ export default function SetNickName() {
     <div className="flex flex-col w-full h-full pt-4">
       <button
         className="w-5 text-2xl relative mb-10"
-        onClick={() => navigate("/")}
+        onClick={() => navigate(-1)}
       >
         <BackArrow />
       </button>
@@ -45,7 +45,17 @@ export default function SetNickName() {
       <div className="flex-grow"></div>
 
       <div className="pb-5">
-        <Button title="시작하기" path="/main" state={state} />
+        <button
+          onClick={() => {
+            checkNickname(nickname, setExist, navigate);
+          }}
+          className={`w-full rounded-full py-3 ${
+            state ? "bg-yellow text-white" : "bg-gray  text-darkgray"
+          }`}
+          disabled={!state}
+        >
+          시작하기
+        </button>
       </div>
     </div>
   );

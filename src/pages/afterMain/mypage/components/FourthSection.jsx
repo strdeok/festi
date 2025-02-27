@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import SwitchButton from "./SwitchButton";
+import { LogOut } from "../../../../util/LogOut";
 
 export default function FourthSection({ agreement, setAgreement, setActive }) {
   const navigate = useNavigate()
@@ -14,7 +15,9 @@ export default function FourthSection({ agreement, setAgreement, setActive }) {
           setActive={setActive}
         />
       </p>
-      <p>로그아웃</p>
+      <p onClick={()=>{
+        LogOut(navigate)
+      }}>로그아웃</p>
       <p onClick={()=>{
         navigate("delete-acount")
       }}>회원탈퇴</p>

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { BackArrow } from "../../../../style/Icons";
+import { BackArrow, RedCloseIcon } from "../../../../style/Icons";
 import Input from "../../../beforeMain/components/Input";
-import Button from "../../../../components/Button";
+import { checkNickname } from "../../../../util/CheckNickName";
 
 export default function EditNickName() {
   const [user, setUser] = useState({
@@ -15,6 +15,7 @@ export default function EditNickName() {
 
   const [nickname, setNickname] = useState("");
   const [state, setState] = useState(false);
+  const [exist, setExist] = useState(false); // 중복존재 = true, 중복없음 = false
 
   useEffect(() => {
     if (nickname.length > 0) {
@@ -48,10 +49,26 @@ export default function EditNickName() {
           type={"text"}
         />
       </div>
+      {exist ? (
+        <p className="text-[#FC5852] text-[13px] flex flex-row items-center gap-2 mt-3">
+          <RedCloseIcon />
+          이미 사용 중인 닉네임입니다.
+        </p>
+      ) : null}
       <div className="flex-grow" />
 
       <div className="mb-4">
-        <Button state={state} title={"변경하기"} path={`/mypage/${params.id}`} />
+        <button
+          onClick={() => {
+            checkNickname(nickname, setExist, navigate);
+          }}
+          className={`w-full rounded-full py-3 ${
+            state ? "bg-yellow text-white" : "bg-gray  text-darkgray"
+          }`}
+          disabled={!state}
+        >
+          변경하기
+        </button>
       </div>
     </div>
   );

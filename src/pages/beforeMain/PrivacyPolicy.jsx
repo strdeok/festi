@@ -7,7 +7,7 @@ import SaveAuthCode from "../../util/SaveAuthCode";
 
 export default function PrivacyPolicy() {
   const navigate = useNavigate();
-  const path = useLocation().search;
+
 
   const [state, setState] = useState(false);
   const [admit, setAdmit] = useState({
@@ -41,11 +41,6 @@ export default function PrivacyPolicy() {
     } else setState(false);
   }, [admit]);
 
-  useEffect(() => {
-    SaveAuthCode(path);
-  }, []);
-
-  
 
   return (
     <div
@@ -68,7 +63,7 @@ export default function PrivacyPolicy() {
           mb-10
           "
           onClick={() => {
-            navigate(-1);
+            navigate('/');
           }}
         >
           <BackArrow />
