@@ -11,7 +11,6 @@ export default function SendAuth() {
 
   const sendLogin = async () => {
     await axios
-
       .post(
         "/v1/api/auth/login",
         {
@@ -20,25 +19,27 @@ export default function SendAuth() {
         { headers: { "Content-Type": "application/json" } }
       )
       .then((res) => {
-        console.log(res);
         SaveAuthCode(res);
-        navigate("/loading");
-        // if (res.data.newUser) {
-        //   SaveAuthCode(res);
-        //   navigate("/loading");
-        // } else {
-        //   navigate("/main");
-        // }
+        navigate("/check-policy");
+        if (res.data.newUser) {
+          SaveAuthCode(res);
+          navigate("/loading");
+        } else {
+          navigate("/main");
+        }
       })
       .catch((err) => {
-        console.log(err);
-
+        alert("에러가 발생하였습니다. 다시 시도해주세요.")
+        navigate("/login");
       });
   };
 
   useEffect(() => {
-    sendLogin();
+    if (auth) {
+      sendLogin();
+    } else {
+      navigate("/login");
+    }
   }, []);
   return <Loading />;
-
 }
