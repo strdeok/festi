@@ -60,7 +60,7 @@ export default function MatchingResult() {
       <header className="flex flex-row font-bold text-lg justify-between items-center py-4">
         <div
           onClick={() => {
-            navigate("/alert");
+            navigate(-1);
           }}
         >
           <BackArrow />

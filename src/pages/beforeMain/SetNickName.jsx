@@ -2,7 +2,8 @@ import Input from "./components/Input";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BackArrow, RedCloseIcon } from "../../style/Icons";
-import { checkNickname } from "../../util/CheckNickName";
+import { CheckNickNameExist } from "../../util/CheckNickNameExist";
+import { EditUserNickName } from "../../util/EditUserNickName";
 
 export default function SetNickName() {
   const [state, setState] = useState(false);
@@ -10,6 +11,11 @@ export default function SetNickName() {
   const [exist, setExist] = useState(false); // 중복존재 = true, 중복없음 = false
 
   const navigate = useNavigate();
+
+  const handleSetNickName = () => {
+    CheckNickNameExist(nickname, setExist);
+    exist ? null : EditUserNickName(nickname, navigate, "/main");
+  };
 
   useEffect(() => {
     setState(nickname.length > 0);
@@ -47,7 +53,7 @@ export default function SetNickName() {
       <div className="pb-5">
         <button
           onClick={() => {
-            checkNickname(nickname, setExist, navigate);
+            handleSetNickName();
           }}
           className={`w-full rounded-full py-3 ${
             state ? "bg-yellow text-white" : "bg-gray  text-darkgray"
