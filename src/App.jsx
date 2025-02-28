@@ -23,57 +23,56 @@ import DeletePolaroidsModal from "./pages/afterMain/mypage/manage-polaroid/compo
 import OnBoarding from "./pages/beforeMain/OnBoarding.jsx";
 import Login from "./pages/beforeMain/Login.jsx";
 import SendAuth from "./pages/beforeMain/SendAuth.jsx";
+import PrivateRoutes from "./components/PrivateRoutes.jsx";
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<GlobalLayout />}>
-        {/* 메인 이전 */}
         <Route index element={<OnBoarding />} />
         <Route path="login" element={<Login />} />
-        <Route path="check-policy" element={<SendAuth />} /> {/* 임시 url */}
+        <Route path="main" element={<Main />} />
+        <Route path="loading" element={<SendAuth />} />
 
-        <Route path="loading" element={<PrivacyPolicy />} />{" "}
-
-        {/* 임시 url */}
-        <Route path="set-nickname" element={<SetNickName />} />
-        {/* 메인 이후 */}
-        <Route element={<MainLayout />}>
-          <Route path="main" element={<Main />} />
-          <Route path="matching" element={<Matching />} />
-
-          <Route path="alert" element={<AlertPage />} />
-          <Route path="mypage/:id" element={<Mypage />}>
-            <Route path="delete-acount" element={<DeleteAcount />} />
+        {/* 미로그인시 접근 차단 */}
+        <Route element={<PrivateRoutes />}>
+          <Route path="check-policy" element={<PrivacyPolicy />} />{" "}
+          <Route path="set-nickname" element={<SetNickName />} />
+          <Route element={<MainLayout />}>
+            <Route path="/matching" element={<Matching />} />
+            <Route path="/alert" element={<AlertPage />} />
+            <Route path="//mypage/:id" element={<Mypage />}>
+              <Route path="delete-acount" element={<DeleteAcount />} />
+            </Route>
           </Route>
+          {/* 레이아웃 벗어남 (BottomNavigation 미적용) */}
+          <Route path="mypage/:id/edit-nickname" element={<EditNickName />} />
+          <Route path="matching-result" element={<MatchingResult />} />
+          <Route path="mypage/:id/manage-polaroid" element={<ManagePolaroid />}>
+            <Route path="delete-polaroid" element={<DeletePolaroidsModal />} />
+          </Route>
+          {/* 폴라로이드 등록 */}
+          <Route path="signup-polaroid" element={<SignUpPolaroid />} />
+          <Route
+            path="signup-polaroid/filter-polaroid"
+            element={<FilterPolaroid />}
+          />
+          <Route
+            path="signup-polaroid/filter-polaroid/print-polaroid"
+            element={<PrintPolaroid />}
+          />
+          <Route
+            path="signup-polaroid/filter-polaroid/print-polaroid/upload-polaroid"
+            element={<UploadComplete />}
+          />
+          {/* 주점 매칭*/}
+          <Route path="signup-matching" element={<SignUpMatching />} />
+          <Route
+            path="signup-matching/signup-complete"
+            element={<SignUpMatchingComplete />}
+          />
+          <Route path="main/matching/signup-list" element={<ListSignUp />} />
         </Route>
-        {/* 메인이후 + 레이아웃 벗어남 (BottomNavigation 미적용) */}
-        <Route path="mypage/:id/edit-nickname" element={<EditNickName />} />
-        <Route path="matching-result" element={<MatchingResult />} />
-        <Route path="mypage/:id/manage-polaroid" element={<ManagePolaroid />}>
-          <Route path="delete-polaroid" element={<DeletePolaroidsModal />} />
-        </Route>
-        {/* 폴라로이드 등록 */}
-        <Route path="signup-polaroid" element={<SignUpPolaroid />} />
-        <Route
-          path="signup-polaroid/filter-polaroid"
-          element={<FilterPolaroid />}
-        />
-        <Route
-          path="signup-polaroid/filter-polaroid/print-polaroid"
-          element={<PrintPolaroid />}
-        />
-        <Route
-          path="signup-polaroid/filter-polaroid/print-polaroid/upload-polaroid"
-          element={<UploadComplete />}
-        />
-        {/* 주점 매칭*/}
-        <Route path="signup-matching" element={<SignUpMatching />} />
-        <Route
-          path="signup-matching/signup-complete"
-          element={<SignUpMatchingComplete />}
-        />
-        <Route path="main/matching/signup-list" element={<ListSignUp />} />
       </Route>
     </Routes>
   );
