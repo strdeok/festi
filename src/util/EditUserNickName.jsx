@@ -1,25 +1,23 @@
 import axios from "axios";
 
-export const checkNickname = async (nickname, setExist, navigate) => {
+export const EditUserNickName = async (nickname, navigate, path) => {
   const JWT_TOKEN = localStorage.getItem("jwtToken");
 
   await axios
     .patch(
       "/v1/api/user/nickname",
-      { newNickname: nickname },
+      { nickname: nickname },
       {
         headers: {
           Authorization: `Bearer ${JWT_TOKEN}`,
-          "Content-Type": "application/json", 
+          "Content-Type": "application/json",
         },
       }
     )
     .then((res) => {
-      console.log(res);
-      navigate("/main");
+      res.data.success ? navigate(path) : alert("닉네임 변경에 실패했습니다.");
     })
     .catch((err) => {
       console.log(err);
-      setExist(true);
     });
 };

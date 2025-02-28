@@ -1,21 +1,27 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { BackArrow, RedCloseIcon } from "../../../../style/Icons";
 import Input from "../../../beforeMain/components/Input";
-import { checkNickname } from "../../../../util/CheckNickName";
+import { EditUserNickName } from "../../../../util/EditUserNickName";
+import { CheckNickNameExist } from "../../../../util/CheckNickNameExist";
 
 export default function EditNickName() {
   const [user, setUser] = useState({
     nickname: "닉네임",
-    userInfo: "GDG학부 202XXXXXX ㅇㅇㅇ",
   });
 
   const navigate = useNavigate();
-  const params = useParams();
 
   const [nickname, setNickname] = useState("");
   const [state, setState] = useState(false);
   const [exist, setExist] = useState(false); // 중복존재 = true, 중복없음 = false
+
+  const handleChangeNickname = async () => {
+    CheckNickNameExist(nickname, setExist);
+    if (!exist) {
+      await EditUserNickName(nickname, setExist, navigate, -1);
+    }
+  };
 
   useEffect(() => {
     if (nickname.length > 0) {
@@ -60,7 +66,7 @@ export default function EditNickName() {
       <div className="mb-4">
         <button
           onClick={() => {
-            checkNickname(nickname, setExist, navigate);
+            handleChangeNickname();
           }}
           className={`w-full rounded-full py-3 ${
             state ? "bg-yellow text-white" : "bg-gray  text-darkgray"
