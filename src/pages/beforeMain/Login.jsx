@@ -13,7 +13,7 @@ export default function Login() {
         <button className="w-full rounded-full py-3 bg-yellow text-white">
           <Link
             to={
-              "https://kauth.kakao.com/oauth/authorize?client_id=0e9c4f7b52ccaf36a3f6e27337b6b10d&redirect_uri=http://localhost:5173/check-policy&response_type=code"
+              "https://kauth.kakao.com/oauth/authorize?client_id=0e9c4f7b52ccaf36a3f6e27337b6b10d&redirect_uri=http://localhost:5173/loading&response_type=code"
             }
             className="block w-full"
           >
