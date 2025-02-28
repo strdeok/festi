@@ -32,7 +32,7 @@ export default function BottomNavigation() {
       </div>
       <div
         onClick={() => {
-          navigate("alert");
+          navigate("/alert");
         }}
         className={`text-sm flex flex-col gap-2 items-center w-1/4 ${
           locate.pathname === "/alert" ? "text-yellow" : "text-[#969696]"
@@ -43,7 +43,7 @@ export default function BottomNavigation() {
       </div>
       <div
         onClick={() => {
-          navigate(`mypage/${userId}`);
+          navigate(`/mypage/${userId}`);
         }}
         className={`text-sm flex flex-col gap-2 items-center w-1/4 ${
           locate.pathname === `/mypage/${userId}` ? "text-yellow" : "text-[#969696]"

@@ -5,6 +5,7 @@ import OnlyMainBackGroundStyle from "../../../style/OnlyMainBackGroundStyle";
 import PolaroidSection from "./components/CardSection";
 import ScrollButton from "../../../components/ScrollButton";
 import Polaroids from "../../../components/Polaroids";
+import BottomNavigation from "../../../components/BottomNavigation";
 
 export default function Main() {
   useEffect(() => {
@@ -37,6 +38,7 @@ export default function Main() {
       </div>
 
       <ScrollButton bottom={"bottom-28"} />
+      <BottomNavigation />
     </>
   );
 }

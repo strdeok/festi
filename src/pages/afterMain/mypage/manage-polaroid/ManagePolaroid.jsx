@@ -18,7 +18,7 @@ export default function ManagePolaroid() {
         <header className="flex flex-row font-bold text-lg justify-between items-center py-4">
           <div
             onClick={() => {
-              navigate(`/mypage/${params.id}`);
+              navigate(-1);
             }}
           >
             <BackArrow />
