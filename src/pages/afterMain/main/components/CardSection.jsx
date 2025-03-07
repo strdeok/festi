@@ -1,32 +1,26 @@
 import { motion } from "framer-motion";
+import { GetEntirePolaroids } from "../../../../util/GetEntirePolaroids";
+import { useEffect, useState } from "react";
 
 export default function PolaroidSection() {
-  const images = [
-    "/images/sample image (1).jpg",
-    "/images/sample image (2).jpg",
-    "/images/sample image (3).jpg",
-    "/images/sample image (4).jpg",
-    "/images/sample image (5).jpg",
-    "/images/sample image (6).jpg",
-    "/images/sample image (7).jpg",
-    "/images/sample image (8).jpg",
-    "/images/sample image (9).jpg",
-  ];
+  const [images, setImages] = useState([]);
 
-  const loopedImages = [...images, ...images];
+  useEffect(() => {
+    GetEntirePolaroids(setImages);
+  }, []);
 
   return (
     <div className="overflow-hidden w-screen h-64 relative">
       <motion.div
         className="flex w-max"
-        animate={{ x: ["0%", "-50%"] }} // 왼쪽으로 이동
+        animate={{ x: ["0%", "-50%"] }} // 왼쪽으로 이동  
         transition={{
           ease: "linear",
           duration: 20, // 이동 속도 조절 (작을수록 빠름)
           repeat: Infinity, // 무한 반복
         }}
       >
-        {loopedImages.map((img, index) => {
+        {images.map((img, index) => {
           const random_boolean = Math.random() < 0.5;
           return (
             <div
