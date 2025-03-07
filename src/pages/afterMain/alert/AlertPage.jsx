@@ -1,13 +1,13 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import AlertContent from "./Components/AlertContent";
 import dayjs from "dayjs";
 import { GetAlert } from "../../../util/GetAlert";
 
 export default function AlertPage() {
-  const now = dayjs().format("HH:mm");
+  const [alertList, setAlertList] = useState([]);
 
   useEffect(() => {
-    GetAlert();
+    GetAlert(setAlertList);
   }, []);
 
   return (
@@ -15,33 +15,24 @@ export default function AlertPage() {
       <header className="w-full text-center py-4 font-bold text-lg">
         알림
       </header>
+
       <main className="w-screen">
-        <AlertContent
-          alertType={"party"}
-          alertConent={"주점팟 매칭 완료"}
-          alertTime={now}
-          read={true}
-        />
-        <AlertContent
-          alertType={"party"}
-          alertConent={"주점팟 매칭 수정"}
-          alertTime={now}
-        />
-        <AlertContent
-          alertType={"polaroid"}
-          alertConent={"폴라로이드 등록"}
-          alertTime={now}
-        />
-        <AlertContent
-          alertType={"polaroid"}
-          alertConent={"폴라로이드 수정"}
-          alertTime={now}
-        />
-        <AlertContent
-          alertType={"party"}
-          alertConent={"주점팟 매칭 등록"}
-          alertTime={now}
-        />
+        {alertList.length > 0 ? (
+          alertList.map((data) => (
+            <AlertContent
+              key={data.alarmId} // 리스트 렌더링 시 key 추가
+              alertType={data.alarmType}
+              alertConent={data.alarmMsg}
+              read={data.isRead}
+              alertTime={data.sendTime}
+              alertId={data.alarmId}
+            />
+          ))
+        ) : (
+          <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-darkgray">
+            새로운 알림이 없습니다.
+          </p>
+        )}
       </main>
     </div>
   );

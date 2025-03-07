@@ -14,7 +14,7 @@ export default function ViewFullImage({ image, setFullimage }) {
 
   switch (lastPath) {
     case "delete-polaroid":
-      return <DeletePolaroidsModal image={image} />;
+      return <DeletePolaroidsModal image={image} setFullimage={setFullimage} />;
 
     default:
       return (
@@ -36,8 +36,8 @@ export default function ViewFullImage({ image, setFullimage }) {
             </button>
             <div className="rounded-full bg-yellow size-6 absolute z-10 mt-1"></div>
             <img
-              src={image}
-              alt={image}
+              src={image.imgLink}
+              alt={image.imgLink}
               className="w-56 h-72 object-fill mt-4"
             />
             {lastPath === "manage-polaroid" && (
