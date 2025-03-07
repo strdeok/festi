@@ -41,14 +41,14 @@ function App() {
           <Route element={<MainLayout />}>
             <Route path="/matching" element={<Matching />} />
             <Route path="/alert" element={<AlertPage />} />
-            <Route path="//mypage/:id" element={<Mypage />}>
+            <Route path="/mypage" element={<Mypage />}>
               <Route path="delete-acount" element={<DeleteAcount />} />
             </Route>
           </Route>
           {/* 레이아웃 벗어남 (BottomNavigation 미적용) */}
-          <Route path="mypage/:id/edit-nickname" element={<EditNickName />} />
+          <Route path="mypage/edit-nickname" element={<EditNickName />} />
           <Route path="matching-result" element={<MatchingResult />} />
-          <Route path="mypage/:id/manage-polaroid" element={<ManagePolaroid />}>
+          <Route path="mypage/manage-polaroid" element={<ManagePolaroid />}>
             <Route path="delete-polaroid" element={<DeletePolaroidsModal />} />
           </Route>
           {/* 폴라로이드 등록 */}
