@@ -8,13 +8,10 @@ export const GetIndividualPolaroids = (setImages) => {
       },
     })
     .then((res) => {
-      const polaroids = res.data.data;
-      polaroids.forEach((apiObejct, _i) => {
-        if (apiObejct.key == "imgLink") {
-          polaroids.push(apiObejct.value);
-        }
-      });
-      setImages(polaroids);
+      if (res.data.message !== "검색된 결과가 없습니다.") {
+        const polaroids = res.data.data;
+        setImages(polaroids);
+      }
     })
     .catch((err) => {
       console.log(err);

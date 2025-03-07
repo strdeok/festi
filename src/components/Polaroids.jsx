@@ -27,8 +27,9 @@ export default function Polaroids({ columns }) {
         <ViewFullImage image={fullImage} setFullimage={setFullimage} />
       ) : null}
 
-      {images.map((img, index) => {
-      const random_boolean = Math.random() < 0.5
+      {images.map((data, index) => {
+        console.log(data);
+        const random_boolean = Math.random() < 0.5;
         return (
           <>
             <div
@@ -44,7 +45,7 @@ export default function Polaroids({ columns }) {
                 gridRow: Math.floor(index) + 1,
               }}
               onClick={() => {
-                setFullimage(img);
+                setFullimage(data);
               }}
             >
               <div
@@ -53,8 +54,8 @@ export default function Polaroids({ columns }) {
                 } size-3 absolute z-10`}
               ></div>
               <img
-                src={img}
-                alt={img}
+                src={data.imgLink}
+                alt={data.imgLink}
                 className="w-24 h-28 object-fill relative top-1"
               />
             </div>

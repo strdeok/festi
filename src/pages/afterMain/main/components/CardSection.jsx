@@ -20,7 +20,7 @@ export default function PolaroidSection() {
           repeat: Infinity, // 무한 반복
         }}
       >
-        {images.map((img, index) => {
+        {images.map((data, index) => {
           const random_boolean = Math.random() < 0.5;
           return (
             <div
@@ -35,8 +35,8 @@ export default function PolaroidSection() {
                 } size-3 absolute z-10`}
               ></div>
               <img
-                src={img}
-                alt={img}
+                src={data.imgLink}
+                alt={data.imgLink}
                 className="w-24 h-28 object-fill relative top-1"
               />
             </div>

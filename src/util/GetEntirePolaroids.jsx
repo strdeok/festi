@@ -9,11 +9,7 @@ export const GetEntirePolaroids = (setImages) => {
     })
     .then((response) => {
       const polaroids = response.data.data;
-      const copyPolaroids = [];
-      polaroids.forEach((apiObejct, _i) => {
-        copyPolaroids.push(apiObejct.imgLink);
-      });
-      setImages(copyPolaroids);
+      setImages(polaroids);
     })
     .catch((err) => {
       console.log(err);
