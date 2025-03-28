@@ -17,9 +17,9 @@ export default function EditNickName() {
   const [exist, setExist] = useState(false); // 중복존재 = true, 중복없음 = false
 
   const handleChangeNickname = async () => {
-    CheckNickNameExist(nickname, setExist);
-    if (!exist) {
-      await EditUserNickName(nickname, setExist, navigate, -1);
+    await CheckNickNameExist(nickname, setExist);
+    if (exist == true) {
+      await EditUserNickName(nickname, navigate);
     }
   };
 

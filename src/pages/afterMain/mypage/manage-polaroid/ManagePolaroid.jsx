@@ -6,7 +6,6 @@ import ScrollButton from "../../../../components/ScrollButton";
 
 export default function ManagePolaroid() {
   const navigate = useNavigate();
-  const params = useParams();
 
   useEffect(() => {
     window.scrollTo(0, 0);

@@ -76,7 +76,7 @@ export default function Matching() {
                                 relative
                                 "
                                 onClick={() => {
-                                    navigate(-1);
+                                    navigate('/matching-result');
                                 }}
                             >
                                 <ForwardArrow />
