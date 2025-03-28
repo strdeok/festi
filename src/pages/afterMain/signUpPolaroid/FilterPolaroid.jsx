@@ -7,12 +7,15 @@ import Button, { DisneyButton } from "../../../components/Button";
 export default function FilterPolaroid() {
   const navigate = useNavigate();
   const location = useLocation();
-  const source = location.state;
+  const { source, imageUrl } = location.state || {};
+  console.log(location);
+
 
   const [selectedOne, setSelectedOne] = useState(false);
   const [selectedTwo, setSelectedTwo] = useState(false);
   const [selectedThird, setSelectedThird] = useState(false);
   const [state, setState] = useState(false);
+
 
   const selectedButtonOne = () => {
     setSelectedOne(!selectedOne);
@@ -43,7 +46,7 @@ export default function FilterPolaroid() {
   return (
     <>
       <div className="flex flex-col h-full items-center pt-4">
-        <div className="w-full flex flex-row">
+        <div className="w-full flex flex-row mb-6">
           <button
             className="
                         w-5
@@ -61,7 +64,7 @@ export default function FilterPolaroid() {
         <div>
           <PolaroidFrame source={source} />
         </div>
-        <div className="flex flex-row justify-start items-center gap-2 mt-7">
+        <div className="flex flex-row justify-start items-center gap-2 mt-14">
           <div onClick={() => selectedButtonOne()}>
             <DisneyButton selected={selectedOne} title={"디즈니"} />
           </div>
@@ -73,12 +76,15 @@ export default function FilterPolaroid() {
           </div>
         </div>
         <div className="flex-grow"></div>
+
         <div className="w-full mb-4">
           <Button
             title={"출력하기"}
             state={state}
             path={"print-polaroid"}
-            data={source}
+            data={{source:source,
+              imageUrl:imageUrl
+            }}
           />
         </div>
       </div>

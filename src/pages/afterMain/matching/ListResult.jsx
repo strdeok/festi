@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../../../components/Button";
 import { BackArrow } from "../../../style/Icons";
-import SignUpComplete from "./components/SignUpComplete";
+import SignUpComplete from "./components/ResultSearch";
 import NoSignUp from "./components/NoSignUp";
 
 export default function ListSignUp() {
@@ -63,7 +63,7 @@ export default function ListSignUp() {
         >
           <BackArrow />
         </div>
-        <span className="mx-auto">등록 내역</span>
+        <span className="mx-auto">매칭 결과</span>
       </header>
 
       <nav className="mt-6 flex flex-row gap-2">

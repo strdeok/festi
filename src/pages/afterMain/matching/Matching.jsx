@@ -57,7 +57,7 @@ export default function Matching() {
                                 relative
                                 "
                                 onClick={() => {
-                                    navigate("/main/matching/signup-list");
+                                    navigate("/signup-list");
                                 }}
                             >
                                 <ForwardArrow />
@@ -76,7 +76,9 @@ export default function Matching() {
                                 relative
                                 "
                                 onClick={() => {
-                                    navigate('/matching-result');
+
+                                    navigate("/result-list");
+
                                 }}
                             >
                                 <ForwardArrow />

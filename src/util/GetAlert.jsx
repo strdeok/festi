@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 export const GetAlert = async (setAlertList) => {
   await axios
     .get("/v1/api/alarm/search", {

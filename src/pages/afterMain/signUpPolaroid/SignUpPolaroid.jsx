@@ -7,6 +7,7 @@ import { CameraIcon, ImageIcon, SelectedCameraIcon, SelectedImageIcon } from "..
 export default function SignUpPolaroid(props){
     const navigate = useNavigate();
     const [source, setSource] = useState("");
+    const [imageUrl, setImageUrl] = useState("")
     const [camera, setCamera] = useState(false);
     const [image, setImage] = useState(false);
     const [state, setState] = useState(false);
@@ -17,6 +18,7 @@ export default function SignUpPolaroid(props){
         if (target.files) {
             if (target.files.length !== 0) {
                 const file = target.files[0];
+                setImageUrl(file);
                 const newUrl = URL.createObjectURL(file);
                 setSource(newUrl);
             }
@@ -49,7 +51,11 @@ export default function SignUpPolaroid(props){
 
     useEffect(() => {
         if (source !== ""){
-            navigate('filter-polaroid', { state: source })
+            const data = {
+                source: source,
+                imageUrl: imageUrl,
+            };
+            navigate('filter-polaroid', { state: data })
         }
     }, [source])
 

@@ -24,6 +24,7 @@ import OnBoarding from "./pages/beforeMain/OnBoarding.jsx";
 import Login from "./pages/beforeMain/Login.jsx";
 import SendAuth from "./pages/beforeMain/SendAuth.jsx";
 import PrivateRoutes from "./components/PrivateRoutes.jsx";
+import ListResult from "./pages/afterMain/matching/ListResult"
 
 function App() {
   return (
@@ -71,7 +72,8 @@ function App() {
             path="signup-matching/signup-complete"
             element={<SignUpMatchingComplete />}
           />
-          <Route path="main/matching/signup-list" element={<ListSignUp />} />
+          <Route path="signup-list" element={<ListSignUp />} />
+          <Route path="result-list" element={<ListResult />} />
         </Route>
       </Route>
     </Routes>
