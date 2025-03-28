@@ -2,15 +2,20 @@ import { useNavigate } from "react-router-dom";
 
 export default function Button({ title, path, state, data }) {
   const navigate = useNavigate();
+  const onClickFunction = path ? 
+  () => {
+    if (data){
+      navigate(path, { state : data })
+    }
+    else {
+      navigate(path);
+    }
+  }
+  : () => {} 
   return (
     <button
       onClick={() => {
-        if (data){
-          navigate(path, { state : data })
-        }
-        else {
-          navigate(path);
-        }
+        onClickFunction();
       }}
       className={`w-full rounded-full py-3 ${
         state ? "bg-yellow text-white" : "bg-gray  text-darkgray"

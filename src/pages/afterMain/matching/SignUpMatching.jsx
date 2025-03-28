@@ -8,24 +8,29 @@ import Button from "../../../components/Button";
 
 export default function SignUpMatching() {
     const navigate = useNavigate();
+    const location = useLocation();
+
     const nextId = useRef(1);
     const imageRef = useRef(null);
     const gender = ["남자", "여자", "혼성"];
-    const date = ["5월 14일 (월)", "5월 15일 (화)", "5월 16일 (수)"];
+    const date = ["5월 14일 (목)", "5월 15일 (금)", "5월 16일 (토)"];
     const startTime = ["17:00", "17:30", "18:00", "18:30", "19:00", "20:00", "20:30", "21:00"];
     const drinkAmount = ["1병", "2병", "3병"];
     const mood = ["도란도란", "시끌벅적", "짧고굵게", "밤새도록"];
 
-    const location = useLocation();
-    const matchingData = location.state;
+    
 
     const [buttonState, setButtonState] = useState(false);
+    const [isModify, setIsModify] = useState(false);
 
     const [source, setSource] = useState("");
+    const [imageUrl, setImageUrl] = useState("");
+
     const handleCapture = (target) => {
         if (target.files) {
             if (target.files.length !== 0) {
                 const file = target.files[0];
+                setImageUrl(file);
                 const newUrl = URL.createObjectURL(file);
                 setSource(newUrl);
                 target.value = "";
@@ -124,9 +129,9 @@ export default function SignUpMatching() {
 
     // 원하는 날짜 정보를 저장하는 State
     const [selectedDate, setSelectedDate] = useState({
-        "5월 14일 (월)" : false,
-        "5월 15일 (화)" : false,
-        "5월 16일 (수)" : false,
+        "5월 14일 (목)" : false,
+        "5월 15일 (금)" : false,
+        "5월 16일 (토)" : false,
     });
 
     const [isSelectedDate, setIsSelectedDate] = useState("");
@@ -134,30 +139,30 @@ export default function SignUpMatching() {
     const handleDate = (date) => {
         if (selectedDate[date]) {
             setSelectedDate({
-                "5월 14일 (월)" : false,
-                "5월 15일 (화)" : false,
-                "5월 16일 (수)" : false,
+                "5월 14일 (목)" : false,
+                "5월 15일 (금)" : false,
+                "5월 16일 (토)" : false,
             });
             setIsSelectedDate("");
-        } else if(date === "5월 14일 (월)") {
+        } else if(date === "5월 14일 (목)") {
             setSelectedDate({
-                "5월 14일 (월)" : true,
-                "5월 15일 (화)" : false,
-                "5월 16일 (수)" : false, 
+                "5월 14일 (목)" : true,
+                "5월 15일 (금)" : false,
+                "5월 16일 (토)" : false, 
             });
             setIsSelectedDate(date);
-        } else if(date === "5월 15일 (화)") {
+        } else if(date === "5월 15일 (금)") {
             setSelectedDate({
-                "5월 14일 (월)" : false,
-                "5월 15일 (화)" : true,
-                "5월 16일 (수)" : false, 
+                "5월 14일 (목)" : false,
+                "5월 15일 (금)" : true,
+                "5월 16일 (토)" : false, 
             });
             setIsSelectedDate(date);
-        } else if(date === "5월 16일 (수)") {
+        } else if(date === "5월 16일 (토)") {
             setSelectedDate({
-                "5월 14일 (월)" : false,
-                "5월 15일 (화)" : false,
-                "5월 16일 (수)" : true, 
+                "5월 14일 (목)" : false,
+                "5월 15일 (금)" : false,
+                "5월 16일 (토)" : true, 
             });
             setIsSelectedDate(date);
         }
@@ -334,6 +339,37 @@ export default function SignUpMatching() {
     }
 
     useEffect(() => {
+        const matchingData = location.state;
+        console.log(matchingData);
+        if (matchingData) {
+            setIsModify(true);
+            setSource(matchingData.img);
+            handleGender(matchingData.gender);
+            handleWantedGender(matchingData.wantedGender);
+            handleDate(matchingData.date);
+            handleTime(matchingData.time);
+            handleDrink(matchingData.drink);
+            handleDrinkHalf(matchingData.drinkHalf);
+            handleMood(matchingData.mood);
+            setMemberCount(matchingData.people);
+            const newInputItems = [...inputItems]; // 기존 배열 복사
+
+            // 만약 i번째 요소가 존재하지 않으면 새로 추가
+            while (newInputItems.length < matchingData.contact.length) {
+                newInputItems.push({ id: nextId.current, title: "" });
+                nextId.current += 1;
+            }
+
+            for (let i = 0; i < matchingData.contact.length; i++) {
+                newInputItems[i].title = matchingData.contact[i].title;
+            }
+            setInputItems(newInputItems);
+        }
+    }, []);
+
+ 
+
+    useEffect(() => {
         if (memberCount > 0 && memberCount < inputItems.length) {
             const sliceCopy = inputItems.slice(0, memberCount);
             setInputItems(sliceCopy);
@@ -384,12 +420,16 @@ export default function SignUpMatching() {
                         mr-[118px]
                         "
                         onClick={() => {
-                            navigate(-1);
+                            navigate("/matching");
                         }}
                     >
                         <BackArrow />
                     </button>
+                    {isModify?
+                    <p className="text-lg font-bold">매칭 등록 수정</p>
+                    :
                     <p className="text-lg font-bold">매칭 등록</p>
+                    }
                 </div>
 
                 <div className = "flex flex-row mb-8 justify-start items-center mt-5 relative">
@@ -414,9 +454,9 @@ export default function SignUpMatching() {
                 <div className="flex flex-col items-start">
                     <p className="font-bold mb-3">본인 성별</p>
                     <div className="flex flex-row items-center overflow-x-scroll gap-x-2 mb-8">
-                        {gender.map((gender) => {
+                        {gender.map((gender, index) => {
                             return(
-                                <MatchingButton title={gender} selected={selectedGender[gender]} category="성별" onAddButton={() => handleGender(gender)}/>
+                                <MatchingButton key={index} title={gender} selected={selectedGender[gender]} category="성별" onAddButton={() => handleGender(gender)}/>
                             );
                         })}
                     </div>
@@ -508,20 +548,41 @@ export default function SignUpMatching() {
                     <MatchingButton title={"+"} selected={false} category="플러스" text={"text-3xl"} onAddButton={addInput}/>
                     <div className="flex-grow mb-12"></div>
                     <div className="w-full mb-4">
-                        <Button title={"등록하기"} state={buttonState} path={"signup-complete"} 
-                        data={{
-                            title: "등록 완료!",
-                            date: isSelectedDate.split(' (', 1).join(""),
-                            nickname: "닉네임",
-                            img: source,
-                            gender: isSelectedGender,
-                            preferredGender: isSelectedWantedGender,
-                            time: isSelectedDate + " " + isSelectedTime,
-                            averageAlcohol: isSelectedDrink +selectedDrinkHalf,
-                            preferredPeople: memberCount+"명",
-                            preferredMood: isSelectedMood,
-                            contact: inputItems
-                        }}/>
+                        {
+                         isModify?
+                         <Button title={"수정하기"} state={buttonState} path={"signup-complete"} 
+                            data={{
+                                title: "수정 완료!",
+                                fileUrl: imageUrl,
+                                date: isSelectedDate.split(' (', 1).join(""),
+                                nickname: "닉네임",
+                                img: source,
+                                gender: isSelectedGender,
+                                preferredGender: isSelectedWantedGender,
+                                time: isSelectedDate + " " + isSelectedTime,
+                                averageAlcohol: isSelectedDrink +selectedDrinkHalf,
+                                preferredPeople: memberCount+"명",
+                                preferredMood: isSelectedMood,
+                                contact: inputItems
+                            }}/>
+                         :
+                            <Button title={"등록하기"} state={buttonState} path={"signup-complete"} 
+                            data={{
+                                title: "등록 완료!",
+                                fileUrl: imageUrl,
+                                date: isSelectedDate.split(' (', 1).join(""),
+                                nickname: "닉네임",
+                                img: source,
+                                gender: isSelectedGender,
+                                preferredGender: isSelectedWantedGender,
+                                time: isSelectedDate + " " + isSelectedTime,
+                                averageAlcohol: isSelectedDrink +selectedDrinkHalf,
+                                preferredPeople: memberCount+"명",
+                                preferredMood: isSelectedMood,
+                                contact: inputItems
+                            }}/>
+                        }
+                        
                     </div>
                 </div>
             </div>
