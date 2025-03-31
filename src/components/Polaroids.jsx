@@ -1,25 +1,25 @@
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import PlusIcon from "../style/Icons";
 import ViewFullImage from "./ViewFullImage";
-import { useState } from "react";
+import { GetEntirePolaroids } from "../util/GetEntirePolaroids";
+import getLastPath from "../util/GetLastPath";
+import { GetIndividualPolaroids } from "../util/GetIndividualPolaroids";
 
 export default function Polaroids({ columns }) {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const [fullImage, setFullimage] = useState(null);
+  const [images, setImages] = useState([]);
+
   const pattern = ["a", "b", "b", "a", "a"];
 
-  const images = [
-    "/images/sample image (1).jpg",
-    "/images/sample image (2).jpg",
-    "/images/sample image (3).jpg",
-    "/images/sample image (4).jpg",
-    "/images/sample image (5).jpg",
-    "/images/sample image (6).jpg",
-    "/images/sample image (7).jpg",
-    "/images/sample image (8).jpg",
-    "/images/sample image (9).jpg",
-  ];
-
-  const navigate = useNavigate();
+  useEffect(() => {
+    if (getLastPath(location.pathname) === "manage-polaroid") {
+      GetIndividualPolaroids(setImages);
+    } else GetEntirePolaroids(setImages);
+  }, []);
 
   return (
     <div className="grid mt-16 w-full justify-around">
@@ -27,8 +27,9 @@ export default function Polaroids({ columns }) {
         <ViewFullImage image={fullImage} setFullimage={setFullimage} />
       ) : null}
 
-      {images.map((img, index) => {
-        const [random_boolean] = useState(Math.random() < 0.5);
+      {images.map((data, index) => {
+        console.log(data);
+        const random_boolean = Math.random() < 0.5;
         return (
           <>
             <div
@@ -44,7 +45,7 @@ export default function Polaroids({ columns }) {
                 gridRow: Math.floor(index) + 1,
               }}
               onClick={() => {
-                setFullimage(img);
+                setFullimage(data);
               }}
             >
               <div
@@ -53,8 +54,8 @@ export default function Polaroids({ columns }) {
                 } size-3 absolute z-10`}
               ></div>
               <img
-                src={img}
-                alt={img}
+                src={data.imgLink}
+                alt={data.imgLink}
                 className="w-24 h-28 object-fill relative top-1"
               />
             </div>

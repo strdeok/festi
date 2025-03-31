@@ -76,7 +76,9 @@ export default function Matching() {
                                 relative
                                 "
                                 onClick={() => {
+
                                     navigate("/result-list");
+
                                 }}
                             >
                                 <ForwardArrow />

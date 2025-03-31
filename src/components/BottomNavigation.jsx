@@ -43,13 +43,13 @@ export default function BottomNavigation() {
       </div>
       <div
         onClick={() => {
-          navigate(`/mypage/${userId}`);
+          navigate(`/mypage`);
         }}
         className={`text-sm flex flex-col gap-2 items-center w-1/4 ${
-          locate.pathname === `/mypage/${userId}` ? "text-yellow" : "text-[#969696]"
+          locate.pathname === `/mypage` ? "text-yellow" : "text-[#969696]"
         }`}
       >
-        <Human state={locate.pathname == `/mypage/${userId}`} />
+        <Human state={locate.pathname == `/mypage`} />
         마이페이지
       </div>
     </div>
