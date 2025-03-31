@@ -173,7 +173,6 @@ const postMatchingData = async () => {
     drink: signUpData.averageAlcohol,
     mood: signUpData.preferredMood,
     contact: signUpData.contact,
-    // contact:["1234"],
     groupImg: imgUrl,
   };
   // postData.contact = JSON.stringify(postData.contact);
@@ -181,12 +180,6 @@ const postMatchingData = async () => {
     return JSON.stringify(item);
   });
 
-  console.log(postData);
-
-  // axios.defaults.headers.common["Content-Type"] = "application/json";
-
-  // console.log("📌 요청 헤더:", axios.defaults.headers.common); // 🔥 3️⃣ Axios 헤더 확인
-  console.log(JWT_TOKEN);
   await axios
     .post(
       "/v1/api/match",
