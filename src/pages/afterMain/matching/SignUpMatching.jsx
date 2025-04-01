@@ -19,6 +19,7 @@ export default function SignUpMatching() {
     const mood = ["도란도란", "시끌벅적", "짧고굵게", "밤새도록"];
 
     
+    const [prevDate, setPrevDate] = useState("");
 
     const [buttonState, setButtonState] = useState(false);
     const [isModify, setIsModify] = useState(false);
@@ -364,6 +365,7 @@ export default function SignUpMatching() {
                 newInputItems[i].title = matchingData.contact[i].title;
             }
             setInputItems(newInputItems);
+            setPrevDate(matchingData.date + " " + matchingData.time);
         }
     }, []);
 
@@ -563,7 +565,8 @@ export default function SignUpMatching() {
                                 averageAlcohol: isSelectedDrink +selectedDrinkHalf,
                                 preferredPeople: memberCount+"명",
                                 preferredMood: isSelectedMood,
-                                contact: inputItems
+                                contact: inputItems,
+                                prevDate: prevDate
                             }}/>
                          :
                             <Button title={"등록하기"} state={buttonState} path={"signup-complete"} 
@@ -579,7 +582,8 @@ export default function SignUpMatching() {
                                 averageAlcohol: isSelectedDrink +selectedDrinkHalf,
                                 preferredPeople: memberCount+"명",
                                 preferredMood: isSelectedMood,
-                                contact: inputItems
+                                contact: inputItems,
+                                prevDate: isSelectedDate + " " + isSelectedTime,
                             }}/>
                         }
                         

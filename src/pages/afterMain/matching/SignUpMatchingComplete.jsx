@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Button from "../../../components/Button";
 import axios from "axios";
@@ -85,9 +85,12 @@ function SignUpComplete({ matchingData }) {
 
 export default function SignUpMatchingComplete() {
   const location = useLocation();
+  console.log(location);
 
   const title = location.state.title;
   const fileUrl = location.state.fileUrl;
+
+  const [username, setUserName] = useState("");
 
   const signUpData = {
     date: location.state.date,
@@ -99,10 +102,27 @@ export default function SignUpMatchingComplete() {
     averageAlcohol: location.state.averageAlcohol,
     preferredPeople: location.state.preferredPeople,
     preferredMood: location.state.preferredMood,
-    contact: location.state.contact
+    contact: location.state.contact,
+    prevDate: location.state.prevDate,
+    nickname: username,
 };
 
-const transformDate = () => {
+const getUserInfo = async () => {
+  await axios
+      .get("/v1/api/user/info", {
+      headers: {
+          Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
+      },
+      })
+      .then((res) => {
+        setUserName(res.data.nickname);
+      })
+      .catch((err) => {
+          console.log(err);
+      });
+  };
+
+const transformDate = (signUpData) => {
   const dateNum = signUpData.time.match(/\d+/g);
   const intDateNum = dateNum.map((str) => {
     return parseInt(str);
@@ -113,7 +133,16 @@ const transformDate = () => {
   signUpData.time = modifiedDate;
   signUpData.date = modifiedDate.split('T')[0];
 
+  if (signUpData.prevDate !== signUpData.time) {
+    const prevNum = signUpData.prevDate.match(/\d+/g);
+    const intPrevNum = prevNum.map((str) => {
+      return parseInt(str);
+    });
 
+    const prevObjectDate = new Date(Date.UTC(2025, intPrevNum[0]-1, intPrevNum[1], intPrevNum[2], intPrevNum[3], 0));
+    const modifiedPrev = prevObjectDate.toISOString().slice(0, -5);
+    signUpData.prevDate = modifiedPrev.split('T')[0];
+  }
   // //다시 되돌리기
   // const reverseNum = modifiedDate.match(/\d+/g);
   // //시간 구하기
@@ -131,18 +160,19 @@ const transformDate = () => {
   // //month에 합치기
   // const month = intReverseNum[1].toString() + "월 " + intReverseNum[2].toString() + "일 (" + week + ") " + time;
   // console.log(month);
-
 };
+
 
 const postMatchingData = async () => {
   const JWT_TOKEN = localStorage.getItem("jwtToken");
+
+  if (location.state.title === "등록 완료!") {
   let imgUrl = "";
 
   const formData = new FormData();
   formData.append("file", fileUrl); // 파일을 FormData에 추가 (첫 번째 인자는 서버에서 사용할 필드 이름)
-
   await axios
-      .post(
+    .post(
       "/v1/api/polaroid/upload",
       formData,
       {
@@ -161,7 +191,7 @@ const postMatchingData = async () => {
 
   // const transformData = JSON.stringify(signUpData.contact);
   // signUpData.contact = transformData;
-  transformDate();
+  transformDate(signUpData);
   const postData = {
     groupName: "Test Group",
     groupInfo: "This is a test group for matching.",
@@ -198,20 +228,49 @@ const postMatchingData = async () => {
       console.log("매칭 등록 실패:", err.response);
     });
 
-    // await axios
-    //   .get(
-    //     "/v1/api/match/2025-05-16",
-    //     {
-    //       headers: {
-    //         Authorization: `Bearer ${JWT_TOKEN}`,
-    //       }
-    //     }
-    //   )
-    //   .then((res) => {
-    //     console.log(res);
-    //   })
-    //   .catch((err) => console.log(err));
+  } else {
+    transformDate(signUpData);
+    const postData = {
+      groupName: "Test Group",
+      groupInfo: "This is a test group for matching.",
+      people: parseInt(signUpData.preferredPeople[0]),
+      matchDate: signUpData.date,
+      startTime: signUpData.time,
+      gender: signUpData.gender,
+      desiredGender: signUpData.preferredGender,
+      drink: signUpData.averageAlcohol,
+      mood: signUpData.preferredMood,
+      contact: signUpData.contact,
+      groupImg: signUpData.img,
+    };
+    // postData.contact = JSON.stringify(postData.contact);
+    postData.contact = postData.contact.map((item) => {
+      return JSON.stringify(item);
+    });
+
+    await axios
+    .put(
+      `/v1/api/match/${signUpData.prevDate}`,
+      postData,
+      {
+        headers: {
+        Authorization: `Bearer ${JWT_TOKEN}`,
+        "Content-Type": "application/json", // 🔥 이 부분 명확하게 추가!
+       }
+      },
+    )
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log("매칭 등록 실패:", err.response);
+    });
+  }
 };
+
+  useEffect(() => {
+    getUserInfo();
+  }, [])
 
 
 
@@ -228,7 +287,7 @@ const postMatchingData = async () => {
       </div>
 
 
-      <div className="flex justify-center items-center mt-12 mb-4">
+      <div className="flex justify-center items-center mt-8 mb-4">
         <p className="text-[#686868] text-sm font-medium">매칭 결과는 0시에 알려드릴게요!</p>
       </div>
 
