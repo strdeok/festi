@@ -1,10 +1,12 @@
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { MenuIcon } from "../../../../style/Icons";
+import axios from "axios";
 
 import Modal from "react-modal";
 
-function DeleteModal({ isModalOpen, setIsModalOpen }) {
+
+function DeleteModal({ isModalOpen, setIsModalOpen, handleDelete }) {
     return (
         <Modal 
             isOpen={isModalOpen}
@@ -24,7 +26,8 @@ function DeleteModal({ isModalOpen, setIsModalOpen }) {
               onClick={() => setIsModalOpen(false)}>
                 아니요
               </div>
-              <div className="flex justify-center items-center w-[122px] h-[44px] bg-[#FC5852] text-white rounded-lg">
+              <div className="flex justify-center items-center w-[122px] h-[44px] bg-[#FC5852] text-white rounded-lg"
+              onClick={() => handleDelete()}>
                 매칭 취소
               </div>
             </div>
@@ -34,8 +37,6 @@ function DeleteModal({ isModalOpen, setIsModalOpen }) {
 }
 
 export default function SignUpComplete({ matchingData }) {
-    const isNickname = matchingData.nickname !== "닉네임"? true : false;
-
     const outside = useRef();
     const navigate = useNavigate();
 
@@ -48,34 +49,83 @@ export default function SignUpComplete({ matchingData }) {
       }  
     };
 
+    const transformDate = (date) => {
+      const dateNum = date.match(/\d+/g);
+      const intDateNum = dateNum.map((str) => {
+        return parseInt(str);
+      });
+  
+      const objectDate = new Date(Date.UTC(2025, intDateNum[0]-1, intDateNum[1], 0, 0, 0));
+      const modifiedDate = objectDate.toISOString().slice(0, -5);
+      return modifiedDate.split('T')[0];
+    }
+
+    const handleDelete = async () => {
+      const JWT_TOKEN = localStorage.getItem("jwtToken");
+      const transDate = transformDate(matchingData["date"]);
+      await axios.delete(
+        `/v1/api/match/${transDate}`, {
+          headers: {
+            Authorization: `Bearer ${JWT_TOKEN}`, // JWT 토큰을 사용한 인증
+          }
+        }
+      )
+      .then((res) => {
+        console.log(res);
+        navigate('/matching');
+        // window.location.reload();
+      })
+      .catch((err) => {
+        console.err(err);
+      })
+    }
+
     const handleModify = () => {
-      //
-      const matchingData = {
-        date: "5월 14일 (목)",
-        nickname: "닉네임",
-        img: "/images/sample image (1).jpg",
-        gender: "남자",
-        wantedGender: "혼성",
-        time: "19:00",
-        drink: "1병",
-        drinkHalf: " 반",
-        people: "4",
-        mood: "도란도란",
-        contact: [{ id:0, title:"인스타@1234" },
-          { id: 1, title: "카카오톡@1234" }
-        ],
+      //tossData에 들어갈 date와 time을 형식에 맞춰 변경
+      const sliceDate = matchingData.matchDateTime.split(' ');
+      let modifyDate = "";
+      let modifyTime = "";
+      sliceDate.map((str, idx) => {
+        if (idx !== 3) {
+          modifyDate += str;
+        }
+        else {
+          modifyTime += str;
+        }
+
+        if (idx === 0 || idx === 1) {
+          modifyDate += " ";
+        }
+      })
+
+      // tossData에 들어갈 drink와 drinkHalf을 형식에 맞춰 변경
+      const sliceDrink = matchingData.drink.split(' ');
+      let modifyDrink = "";
+      let modifyHalf = "";
+      if (sliceDrink.length === 1) {
+        modifyDrink = sliceDrink[0];
+      } else {
+        modifyDrink = sliceDrink[0];
+        modifyHalf = " "+sliceDrink[1];
+      }
+
+      const tossData = {
+        date: modifyDate,
+        nickname: matchingData.nickname,
+        img: matchingData.groupImg,
+        gender: matchingData.gender,
+        wantedGender: matchingData.desiredGender,
+        time: modifyTime,
+        drink: modifyDrink,
+        drinkHalf: modifyHalf,
+        people: parseInt(matchingData.people[0]),
+        mood: matchingData.mood,
+        contact: matchingData.contact,
       };
 
-      navigate("/signup-matching", { state: matchingData });
+      navigate("/signup-matching", { state: tossData });
     };
 
-    // useEffect(() => {
-    //   // axios.
-    //   //   get(
-    //   //     "/v1/api/match/",
-
-    //   //   )
-    // }, []);
   
     useEffect(() => {    
       document.addEventListener('mousedown', handlerOutside);    
@@ -89,7 +139,7 @@ export default function SignUpComplete({ matchingData }) {
         <div>
           <div className="flex flex-row">
               <header className="py-6 text-lg font-medium">
-                <span className="font-bold ">닉네임님</span>팀의 등록 내역
+                <span className="font-bold ">{matchingData.nickname}님의</span> 등록 내역
               </header>
               <div className="py-6 absolute right-8"
                 ref={outside}>
@@ -111,7 +161,7 @@ export default function SignUpComplete({ matchingData }) {
                 </div>}
               </div>
               {isModalOpen?
-              <DeleteModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
+              <DeleteModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} handleDelete={handleDelete}/>
               :null}
 
             </div>
@@ -119,7 +169,7 @@ export default function SignUpComplete({ matchingData }) {
             <div className="flex justify-center items-center">
                 <div className="w-[160px] h-[160px] mb-6 rounded-xl">
                 <img
-                    src={matchingData.img}
+                    src={matchingData.groupImg}
                     alt="팀사진"
                     className="w-full h-full rounded-xl object-fill"
                     />
@@ -137,31 +187,31 @@ export default function SignUpComplete({ matchingData }) {
             <p className="flex justify-between ">
               원하는 성별
               <span className="text-sm font-bold text-black">
-                {matchingData.preferredGender}
+                {matchingData.desiredGender}
               </span>
             </p>
             <p className="flex justify-between ">
               시간
               <span className="text-sm font-bold text-black">
-                {matchingData.time}
+                {matchingData.matchDateTime}
               </span>
             </p>
             <p className="flex justify-between ">
               평균 주량
               <span className="text-sm font-bold text-black">
-                {matchingData.averageAlcohol}
+                {matchingData.drink}
               </span>
             </p>
             <p className="flex justify-between ">
               원하는 인원
               <span className="text-sm font-bold text-black">
-                {matchingData.preferredPeople}
+                {matchingData.people}
               </span>
             </p>
             <p className="flex justify-between ">
               원하는 분위기
               <span className="text-sm font-bold text-black">
-                {matchingData.preferredMood}
+                {matchingData.mood}
               </span>
             </p>
             <p className="flex justify-between ">

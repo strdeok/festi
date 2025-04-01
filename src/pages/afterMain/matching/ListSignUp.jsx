@@ -1,51 +1,50 @@
-import { useState, useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import Button from "../../../components/Button";
 import { BackArrow } from "../../../style/Icons";
 import SignUpComplete from "./components/SignUpComplete";
 import NoSignUp from "./components/NoSignUp";
+import axios from "axios";
 
 export default function ListSignUp() {
   const navigate = useNavigate();
   const [active, setActive] = useState("5월 14일");
+  const location = useLocation();
+  const [matchingData, setMatchingData] = useState([{},{},{}]);
 
-  const matchingData = [
-    {
-      date: "5월 14일",
-      nickname: "닉네임",
-      img: "/images/sample image (1).jpg",
-      gender: "남자",
-      preferredGender: "혼성",
-      time: "5월 14일 (목) 19:00",
-      averageAlcohol: "1병 반",
-      preferredPeople: "4명",
-      preferredMood: "도란도란",
-      contact: [{ id:0, title:"인스타@1234" },
-        { id: 1, title: "카카오톡@1234" }
-      ],
-    },
-    { date: "5월 15일" },
-    { date: "5월 16일" },
-  ];
+  useEffect(() => {
+    console.log(location);
+    setMatchingData(location.state);
+  },[])
+
+  useEffect(() => {
+    for (let i = 0; i < matchingData.length; i++) {
+      if (matchingData[i].matchInfoId) {
+        setActive(matchingData[i].date);
+        break;
+      }
+    }
+  }, [matchingData])
+
 
   const ShowingResult = () => {
     switch (active) {
       case "5월 14일":
-        return matchingData[0].nickname ? (
+        return matchingData[0].matchInfoId ? (
           <SignUpComplete matchingData={matchingData[0]} />
         ) : (
           <NoSignUp />
         );
 
       case "5월 15일":
-        return matchingData[1].nickname ? (
+        return matchingData[1].matchInfoId ? (
           <SignUpComplete matchingData={matchingData[1]} />
         ) : (
           <NoSignUp />
         );
 
       case "5월 16일":
-        return matchingData[2].nickname ? (
+        return matchingData[2].matchInfoId ? (
           <SignUpComplete matchingData={matchingData[2]} />
         ) : (
           <NoSignUp />
